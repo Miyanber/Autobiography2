@@ -1,26 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Hina+Mincho&family=Zen+Kaku+Gothic+New&display=swap');
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+	--black: #111111;
+	--white: #fafafa;
+	--accent-color: #0b669b;
+	--title-font: 'Hina Mincho', serif;
+	--body-font: 'Zen Kaku Gothic New', sans-serif;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+	scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+	margin: 0;
+	background-color: var(--white);
+	color: var(--black);
+	font-family: var(--body-font);
+}
+
+header {
+	position: fixed;
+	width: 100%;
+	height: 3rem;
+	z-index: 100;
+
+	a {
+		text-decoration: none;
+		color: var(--black);
+	}
+
+	.header-text {
+		display: block;
+		margin: 0;
+		margin: 1rem 7rem;
+		text-shadow: .1rem .1rem .2rem var(--white);
+		width: max-content;
+		cursor: pointer;
+	}
+
+	.myr-icon {
+		position: absolute;
+		width: 3rem;
+		left: 2rem;
+		top: 1rem;
+		cursor: pointer;
+	}
+}
+
+section.content {
+	box-sizing: border-box;
+	width: 100%;
+	padding: 5rem 20%;
+}
+
+a {
+	text-decoration: none;
+	color: var(--black);
+	cursor: pointer;
+}
+
+.header-title {
+    font-family: var(--title-font);
+    font-weight: bold;
+    font-size: 1.8rem;
+    margin: 2rem 0;
+}
+
+footer {
+	box-sizing: border-box;
+	width: 100%;
+	padding: 1rem;
+	text-align: center;
+}
+
+/* スマホ対応（縦並びに戻す） */
+@media (max-width: 768px) {
+	body {
+		font-size: 90%;
+	}
+
+    section.content {
+        padding: 3rem 5%;
+    }
 }
