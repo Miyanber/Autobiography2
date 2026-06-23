@@ -1,4 +1,4 @@
-import { getBlogPost } from "@/libs/microcms";
+import { getAllBlogPost, getBlogPost } from "@/libs/microcms";
 import { extractExcerpt } from "@/utils/text";
 
 import styles from "./blog-detail.module.css"
@@ -99,4 +99,18 @@ export default async function BlogRouterPage({ params }: Props) {
       </section>
     </>
   );
+}
+
+/**
+ * SSG用のURLリストを事前に生成する関数
+ */
+export async function generateStaticParams() {
+  // 1. microCMS から全記事のデータを取得する（idのリストが欲しい）
+  // ※ 以前作った全記事取得用の関数（例: getAllBlogPosts）があればそれを使う
+  const posts = await getAllBlogPost(100); 
+
+  // 2. Next.jsが理解できる形（オブジェクトの配列）にして返す
+  return posts.map((post) => ({
+    id: post.id, // [id] の部分にハメ込む文字列を指定
+  }));
 }
