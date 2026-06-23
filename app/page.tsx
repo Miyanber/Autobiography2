@@ -13,12 +13,13 @@ import { getAllBlogPost } from "@/libs/microcms";
 
 export default async function Home() {
   const blogPosts = await getAllBlogPost(4);
+  const displayedWorks = works.filter((work) => work.show_on_top)
 
   return (
-   <div>
+    <>
       <section className={`${styles.index_container}`}>
         <div className={styles.header_container}>
-          <div className={styles.h1_container}>
+          <div className={`${styles.h1_container} p-10`}>
             <h1>Miyanber</h1>
           </div>
           <Image className={styles['img-1']} src={drumsImg} alt="ドラム" />
@@ -30,33 +31,34 @@ export default async function Home() {
 
       <section className={`content bg-[#e3f0f1] ${styles.about}`}>
         <h2 className="text-center">About Me</h2>
-        <p className="text-center my-8">
+        <p className="text-center my-12">
           <strong>フルスタック・クリエイター ｜ Python, Java, JavaScript</strong>
         </p>
-        <p>
-          「日常の不便をコードで解決する」をモットーに活動する開発者です。<br />
+        <p className="text-center my-12">
+          「日常の不便をコードで解決する」をモットーに活動する学生エンジニアです。<br />
           Webアプリケーションの設計・開発から、Minecraft MODの制作まで、プラットフォームを問わず「動くもの」を形にしています。
         </p>
-        <p>
+        <p className="text-center my-12">
           Skills: Python / Django / JavaScript / GitHub / Minecraft Modding
         </p>
-        <p>
-          なお、春から大学生。<br />
-          趣味は陸上・ドラム・システム開発。
+        <p className="text-center my-12">
+          陸上・ドラム・システム開発が趣味です。
         </p>
       </section>
 
       <section className="content">
         <h2 className="text-center">Works</h2>
         <div className={styles.works}>
-          {works.map((work) => {
+          {displayedWorks.map((work) => {
             const cardContent = (
               <>
                 <div className={styles.thumbnail}>
                   <Image 
                     src={work.thumbnail ? work.thumbnail : '/main/img/NO_IMAGE.png'} 
-                    fill 
+                    width={160}
+                    height={120} 
                     alt="サムネイル" 
+                    className="object-cover"
                   />
                 </div>
                 <div className={styles.text}>
@@ -91,7 +93,7 @@ export default async function Home() {
           })}
         </div>
         <div className={styles.link}>
-          <a href="">View All</a>
+          <Link href="/works">View All</Link>
         </div>
       </section>
 
@@ -130,6 +132,6 @@ export default async function Home() {
           Email: miyanba2984h@gmail.com
         </p>
       </section>
-    </div>
+    </>
   );
 }

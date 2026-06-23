@@ -47,7 +47,6 @@ section.content.blog {
     z-index: 50;
     border-radius: 0 1.2em 0 1.2em;
     background-color: var(--white);
-    padding: .6em;
 
     h1 {
         margin: 0;
