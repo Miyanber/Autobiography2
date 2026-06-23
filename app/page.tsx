@@ -118,7 +118,11 @@ export default async function Home() {
                 <div className={styles.text}>
                   <div className={styles.title}>{blogPost.title}</div>
                   <div className={styles.published_at}>
-                    {new Date(blogPost.publishedAt).toLocaleDateString()}
+                    {new Date(blogPost.publishedAt).toLocaleDateString('ja-JP', {
+                      year: 'numeric',
+                      month: 'long',
+                      day: 'numeric',
+                    })}
                   </div>
                 </div>
               </div>
