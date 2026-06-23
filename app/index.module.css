@@ -15,10 +15,6 @@ section.content.blog {
     padding: 5rem 5%;
 }
 
-section.content:nth-of-type(2n) {
-    background-color: #e3f0f1;
-}
-
 .index_container {
     position: relative;
     width: 100%;

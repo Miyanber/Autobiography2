@@ -23,13 +23,13 @@ export const metadata: Metadata = {
     description: "Miyanber のポートフォリオサイトです。",
     url: "https://your-portfolio.com",
     siteName: "Miyanber.com",
-    // images: [
-    //   {
-    //     url: "https://your-portfolio.com/images/ogp.png", // シェアされた時の画像
-    //     width: 1200,
-    //     height: 630,
-    //   },
-    // ],
+    images: [
+      {
+        url: "/ogp_image.png", // シェアされた時の画像
+        width: 1200,
+        height: 630,
+      },
+    ],
     locale: "ja_JP",
     type: "website",
   },

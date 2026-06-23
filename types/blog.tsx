@@ -7,5 +7,9 @@ export type BlogPost = {
   name: string;
   title: string;
   content: string;
-  eyecatch: string;
+  eyecatch: {
+    url: string;
+    height: number;
+    width: number;
+  };
 };
