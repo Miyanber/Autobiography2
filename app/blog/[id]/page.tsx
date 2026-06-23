@@ -1,4 +1,4 @@
-import { BlogPost } from "@/types/blog"
+import { getBlogPost } from "@/libs/microcms";
 
 type Props = {
   params: Promise<{
@@ -6,30 +6,10 @@ type Props = {
   }>;
 }
 
-async function getBlogPost(id: string): Promise<BlogPost | null> {
-  const domain = process.env.MICROCMS_SERVICE_DOMAIN;
-  const apiKey = process.env.MICROCMS_API_KEY;
-
-  const baseUrl = `https://${domain}.microcms.io/api/v1`;
-  if (!domain || !apiKey) {
-    console.error("Cannot load domain and apiKey");
-    return null;
-  }
-
-  const response = await fetch(`${baseUrl}/blogs/${id}`, {
-    headers: {
-      'X-MICROCMS-API-KEY': apiKey,
-    },
-    next: { revalidate: 60 },
-  })
-  
-  return response.json()
-}
-
 export default async function BlogRouterPage({ params }: Props) {
   const { id } = await params;
   
-  const blogPost = await getBlogPost(id)
+  const blogPost = await getBlogPost(id);
   if (blogPost == null) {
     return (
       <div>404 Not Found</div>

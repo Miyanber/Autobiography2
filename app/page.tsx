@@ -1,11 +1,17 @@
 import Image from "next/image";
 
-import drumsImg from '/img/drums.jpg';
+import drumsImg from './img/drums.jpg';
 import oceanImg from './img/oceanarrow.png';
 import trackImg from './img/trackandfield.jpg'
 import vscodeImg from './img/vscode_image.png'
 
-export default function Home() {
+import works from '@/data/works.json'
+import Link from "next/link";
+import { getAllBlogPost } from "@/libs/microcms";
+
+export default async function Home() {
+  const blogPosts = await getAllBlogPost(4);
+
   return (
     <div>
       <section className="index_container">
@@ -39,41 +45,57 @@ export default function Home() {
       <section className="content">
         <h2>Works</h2>
         <div className="works">
-            {% for work in works %}
-            <a href="{{ work.link }}" className="work" target="_blank" rel="noopener noreferrer">
+          {works.map((work) => {
+            const cardContent = (
+              <>
                 <div className="thumbnail">
-                    <Image src="{% if work.thumbnail %}{{ work.thumbnail.url }}{% else %}{% static 'main/img/NO_IMAGE.png' %}{% endif %}" alt="サムネイル" />
+                  <Image src={ work.thumbnail ? work.thumbnail : '/main/img/NO_IMAGE.png' } fill alt="サムネイル" />
                 </div>
                 <div className="text">
-                    <div className="title">{{ work.title }}</div>
-                    <div className="border"></div>
-                    <div className="overview">
-                        {{ work.overview }}
-                    </div>
+                  <div className="title">{ work.title }</div>
+                  <div className="border"></div>
+                  <div className="overview">
+                      { work.overview }
+                  </div>
                 </div>
-            </a>
-            {% endfor %}
+              </>
+            )
+            if (work.link == null) {
+              return (
+                <div className="work" key={work.id}>
+                  {cardContent}
+                </div>
+              )
+            } else {
+              return (
+                <a key={work.id} href={ work.link } className="work" target="_blank" rel="noopener noreferrer">
+                  {cardContent}
+                </a>
+              )
+            }
+          })}
         </div>
         <div className="link">
-            <a href="{% url "main:works" %}">View All</a>
+            <a href="">View All</a>
         </div>
       </section>
       <section className="content blog">
         <h2>Blog</h2>
         <div className="blogposts">
-            {% for blogpost in blogposts %}
-            <a href="{% url "main:blog_detail" blogpost.published_at.year blogpost.published_at.month blogpost.slug %}" className="blogpost-wrapper">
+            {blogPosts.map((blogPost) => (
+              <Link key={blogPost.id} href={`/blog/${blogPost.id}`} className="blogpost-wrapper">
                 <div className="blogpost">
-                    <div className="thumbnail">
-                        <Image src="{% if blogpost.get_thumbnail %}{{ blogpost.get_thumbnail }}{% else %}{% static 'main/img/NO_IMAGE_square.png' %}{% endif %}" alt="サムネイル">
-                    </div>
-                    <div className="text">
-                        <div className="title">{{ blogpost.title }}</div>
-                        <div className="published_at">{{ blogpost.published_at.date }}</div>
-                    </div>
+                  <div className="thumbnail">
+                    { String(blogPost) }
+                    {/* <Image src={ blogPost.thumbnail ? blogPost.thumbnail : '/main/img/NO_IMAGE.png' } alt="サムネイル"> */}
+                  </div>
+                  <div className="text">
+                    <div className="title">{ blogPost.title }</div>
+                    <div className="published_at">{ new Date(blogPost.publishedAt).toLocaleDateString() }</div>
+                  </div>
                 </div>
-            </a>
-            {% endfor %}
+              </Link>
+            ))}
         </div>
       </section>
       <section className="content">
