@@ -16,10 +16,15 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(
+    process.env.NODE_ENV === 'production'
+      ? 'https://miyanber.com' // 👈 本番のドメイン（決まっていれば）
+      : 'http://localhost:3000' // 👈 ローカル開発環境
+  ),
   title: "Miyanber's Portfolio",
   description: "学生エンジニア Miyanber のポートフォリオサイトです。",
   openGraph: {
-    title: "Miyanber.com",
+    title: "Miyanber's Portfolio",
     description: "学生エンジニア Miyanber のポートフォリオサイトです。",
     url: "https://miyanber.com",
     siteName: "Miyanber's Portfolio",

@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const description = extractExcerpt(blogPost.content)
 
-  const title = `Blog - ${blogPost.title}`
+  const title = `Blog - ${blogPost.title} | Miyanber.com`
 
   return {
     title: title,
