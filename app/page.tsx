@@ -1,65 +1,87 @@
 import Image from "next/image";
 
+import drumsImg from '/img/drums.jpg';
+import oceanImg from './img/oceanarrow.png';
+import trackImg from './img/trackandfield.jpg'
+import vscodeImg from './img/vscode_image.png'
+
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <div>
+      <section className="index_container">
+        <div className="header_container">
+          <div className="h1_container">
+              <h1>Miyanber</h1>
+          </div>
+          <Image className="img-1" src={drumsImg} alt="ドラム"/>
+          <Image className="img-2" src={oceanImg} alt="OceanArrow (Minecraft)"/>
+          <Image className="img-3" src={vscodeImg} alt="コーディング"/>
+          <Image className="img-4" src={trackImg} alt="陸上" />
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+      <section className="content about">
+        <h2>About Me</h2>
+        <p>
+            <strong>フルスタック・クリエイター ｜ Python, Java, JavaScript</strong>
+        </p>
+        <p>
+            「日常の不便をコードで解決する」をモットーに活動する開発者です。<br />
+            Webアプリケーションの設計・開発から、Minecraft MODの制作まで、プラットフォームを問わず「動くもの」を形にしています。
+        </p>
+        <p>
+            Skills: Python / Django / JavaScript / GitHub / Minecraft Modding
+        </p>
+        <p>
+            なお、春から大学生。<br />
+            趣味は陸上・ドラム・システム開発。
+        </p>
+      </section>
+      <section className="content">
+        <h2>Works</h2>
+        <div className="works">
+            {% for work in works %}
+            <a href="{{ work.link }}" className="work" target="_blank" rel="noopener noreferrer">
+                <div className="thumbnail">
+                    <Image src="{% if work.thumbnail %}{{ work.thumbnail.url }}{% else %}{% static 'main/img/NO_IMAGE.png' %}{% endif %}" alt="サムネイル" />
+                </div>
+                <div className="text">
+                    <div className="title">{{ work.title }}</div>
+                    <div className="border"></div>
+                    <div className="overview">
+                        {{ work.overview }}
+                    </div>
+                </div>
+            </a>
+            {% endfor %}
         </div>
-      </main>
+        <div className="link">
+            <a href="{% url "main:works" %}">View All</a>
+        </div>
+      </section>
+      <section className="content blog">
+        <h2>Blog</h2>
+        <div className="blogposts">
+            {% for blogpost in blogposts %}
+            <a href="{% url "main:blog_detail" blogpost.published_at.year blogpost.published_at.month blogpost.slug %}" className="blogpost-wrapper">
+                <div className="blogpost">
+                    <div className="thumbnail">
+                        <Image src="{% if blogpost.get_thumbnail %}{{ blogpost.get_thumbnail }}{% else %}{% static 'main/img/NO_IMAGE_square.png' %}{% endif %}" alt="サムネイル">
+                    </div>
+                    <div className="text">
+                        <div className="title">{{ blogpost.title }}</div>
+                        <div className="published_at">{{ blogpost.published_at.date }}</div>
+                    </div>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+      </section>
+      <section className="content">
+        <h2>Contact</h2>
+        <p>
+            Email: miyanba2984h@gmail.com
+        </p>
+      </section>
     </div>
   );
 }
