@@ -35,8 +35,7 @@ body {
 }
 
 h1,
-h2,
-h3 {
+h2 {
 	font-family: var(--title-font);
 	margin: 2rem 0;
 }

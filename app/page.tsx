@@ -111,7 +111,8 @@ export default async function Home() {
                   <Image 
                     src={blogPost.eyecatch ? blogPost.eyecatch.url : '/main/img/NO_IMAGE.png'} 
                     alt="サムネイル"
-                    fill
+                    width={120}
+                    height={120}
                   />
                 </div>
                 <div className={styles.text}>

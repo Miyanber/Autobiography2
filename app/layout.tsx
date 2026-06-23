@@ -16,13 +16,13 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Miyanber.com",
-  description: "Miyanber のポートフォリオサイトです。",
+  title: "Miyanber's Portfolio",
+  description: "学生エンジニア Miyanber のポートフォリオサイトです。",
   openGraph: {
     title: "Miyanber.com",
-    description: "Miyanber のポートフォリオサイトです。",
-    url: "https://your-portfolio.com",
-    siteName: "Miyanber.com",
+    description: "学生エンジニア Miyanber のポートフォリオサイトです。",
+    url: "https://miyanber.com",
+    siteName: "Miyanber's Portfolio",
     images: [
       {
         url: "/ogp_image.png", // シェアされた時の画像
