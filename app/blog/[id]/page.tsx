@@ -12,6 +12,7 @@ import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
 import remarkToc from "remark-toc";
 import rehypeSlug from "rehype-slug";
+import rehypeRaw from "rehype-raw";
 
 type Props = {
   params: Promise<{
@@ -90,7 +91,7 @@ export default async function BlogRouterPage({ params }: Props) {
                 [remarkToc, { heading: '目次', maxDepth: 3 }] // 「目次」という見出しの下に、H3までの目次を自動生成する設定
               ]}
               // rehypePlugins に rehypeSlug を追加（見出しに id="見出し名" を自動で振る）
-              rehypePlugins={[rehypeSlug, rehypeKatex]}
+              rehypePlugins={[rehypeRaw, rehypeSlug, rehypeKatex]}
             >
               {blogPost.content}
             </ReactMarkdown>
