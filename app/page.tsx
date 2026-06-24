@@ -1,9 +1,9 @@
 import Image from "next/image";
 
-import drumsImg from './img/drums.jpg';
-import oceanImg from './img/oceanarrow.png';
-import trackImg from './img/trackandfield.jpg'
-import vscodeImg from './img/vscode_image.png'
+import drumsImg from './img/drums.webp';
+import oceanImg from './img/oceanarrow.webp';
+import trackImg from './img/trackandfield.webp'
+import vscodeImg from './img/vscode_image.webp'
 
 import styles from './index.module.css'
 

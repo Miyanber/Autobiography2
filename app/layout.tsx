@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     siteName: "Miyanber's Portfolio",
     images: [
       {
-        url: "/ogp_image.png", // シェアされた時の画像
+        url: "/ogp_image.webp", // シェアされた時の画像
         width: 1200,
         height: 630,
       },

@@ -8,6 +8,8 @@ const nextConfig: NextConfig = {
         hostname: 'images.microcms-assets.io',
       },
     ],
+    loader: 'custom',
+    loaderFile: './utils/imageLoader.ts',
   },
   output: 'export',
 };
