@@ -19,13 +19,13 @@ export default async function Home() {
     <>
       <section className={`${styles.index_container}`}>
         <div className={styles.header_container}>
-          <div className={`${styles.h1_container} p-10`}>
-            <h1>Miyanber</h1>
+          <div className={`${styles.h1_container} p-6 md:p-10`}>
+            <h1 className="text-4xl md:text-5xl">Miyanber</h1>
           </div>
-          <Image className={styles['img-1']} src={drumsImg} alt="ドラム" />
-          <Image className={styles['img-2']} src={oceanImg} alt="OceanArrow (Minecraft)" />
-          <Image className={styles['img-3']} src={vscodeImg} alt="コーディング" />
-          <Image className={styles['img-4']} src={trackImg} alt="陸上" />
+          <Image className={styles['img-1']} src={drumsImg} alt="ドラム" priority />
+          <Image className={styles['img-2']} src={oceanImg} alt="OceanArrow (Minecraft)" priority />
+          <Image className={styles['img-3']} src={vscodeImg} alt="コーディング" priority />
+          <Image className={styles['img-4']} src={trackImg} alt="陸上" priority />
         </div>
       </section>
 
@@ -54,7 +54,7 @@ export default async function Home() {
               <>
                 <div className={styles.thumbnail}>
                   <Image 
-                    src={work.thumbnail ? work.thumbnail : '/main/img/NO_IMAGE.png'} 
+                    src={work.thumbnail ? work.thumbnail : '/main/img/NO_IMAGE.webp'} 
                     width={160}
                     height={120} 
                     alt="サムネイル" 
@@ -109,7 +109,7 @@ export default async function Home() {
               <div className={styles.blogpost}>
                 <div className={styles.thumbnail}>
                   <Image 
-                    src={blogPost.eyecatch ? blogPost.eyecatch.url : '/main/img/NO_IMAGE.png'} 
+                    src={blogPost.eyecatch ? blogPost.eyecatch.url : '/main/img/NO_IMAGE.webp'} 
                     alt="サムネイル"
                     width={120}
                     height={120}

@@ -25,7 +25,7 @@ export default async function Works() {
 				{works.map((work) => {
 					const content = (
 						<Image
-							src={work.thumbnail ? work.thumbnail : '/main/img/NO_IMAGE.png'}
+							src={work.thumbnail ? work.thumbnail : '/main/img/NO_IMAGE.webp'}
 							alt="サムネイル"
 							width={160} 
 							height={120}

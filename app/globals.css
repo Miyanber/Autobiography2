@@ -1,117 +1,121 @@
-@import url('https://fonts.googleapis.com/css2?family=Hina+Mincho&family=Zen+Kaku+Gothic+New&display=swap');
 @import "tailwindcss";
 
-@layer base {
-	h1 {
-		font-size: 1.875rem;
-		font-weight: 700;
-		margin-bottom: 1.5rem;
-	}
+/* :rootにも変換される */
+@theme {
+  /* フォントの設定（Next.js の next/font/google と連携） */
+  --font-hina: var(--font-hina), serif;
+  --font-zen: var(--font-zen), sans-serif;
 
-	h2 {
-		font-size: 1.5rem;
-		font-weight: 700;
-		margin-bottom: 1rem;
-		margin-top: 2rem;
-		padding-bottom: 0.5rem;
-	}
-
-	p {
-		color: #0f172a;
-		line-height: 1.625;
-		margin-bottom: 1rem;
-	}
+  --black: #111111;
+  --white: #fafafa;
+  --accent-color: #0b669b;
+  --title-font: var(--font-hina);
+  --body-font: var(--font-zen);
 }
 
-:root {
-	--black: #111111;
-	--white: #fafafa;
-	--accent-color: #0b669b;
-	--title-font: 'Hina Mincho', serif;
-	--body-font: 'Zen Kaku Gothic New', sans-serif;
+@layer base {
+  h1 {
+    font-size: 1.875rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    margin-top: 2rem;
+    padding-bottom: 0.5rem;
+  }
+
+  p {
+    color: #0f172a;
+    line-height: 1.625;
+    margin-bottom: 1rem;
+  }
 }
 
 html {
-	scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 body {
-	margin: 0;
-	background-color: var(--white);
-	color: var(--black);
-	font-family: var(--body-font);
+  margin: 0;
+  background-color: var(--white);
+  color: var(--black);
+  font-family: var(--body-font);
 }
 
 h1,
 h2 {
-	font-family: var(--title-font);
-	margin: 2rem 0;
+  font-family: var(--title-font);
+  margin: 2rem 0;
 }
 
 header {
-	position: fixed;
-	width: 100%;
-	height: 3rem;
-	z-index: 100;
+  position: fixed;
+  width: 100%;
+  height: 3rem;
+  z-index: 100;
 
-	a {
-		text-decoration: none;
-		color: var(--black);
-	}
+  a {
+    text-decoration: none;
+    color: var(--black);
+  }
 
-	.header-text {
-		display: block;
-		margin: 0;
-		margin: 1rem 7rem;
-		text-shadow: .1rem .1rem .2rem var(--white);
-		width: max-content;
-		cursor: pointer;
-	}
+  .header-text {
+    display: block;
+    margin: 0;
+    margin: 1rem 7rem;
+    text-shadow: .1rem .1rem .2rem var(--white);
+    width: max-content;
+    cursor: pointer;
+  }
 
-	.myr-icon {
-		position: absolute;
-		width: 3rem;
-		left: 2rem;
-		top: 1rem;
-		cursor: pointer;
-	}
+  .myr-icon {
+    position: absolute;
+    width: 3rem;
+    left: 2rem;
+    top: 1rem;
+    cursor: pointer;
+  }
 }
 
 section.content {
-	box-sizing: border-box;
-	width: 100%;
-	padding: 5rem 20%;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 5rem 20%;
 }
 
 a {
-	text-decoration: none;
-	color: var(--black);
-	cursor: pointer;
+  text-decoration: none;
+  color: var(--black);
+  cursor: pointer;
 }
 
 .header-title {
-	font-family: var(--title-font);
-	font-weight: bold;
-	font-size: 1.8rem;
-	margin: 2rem 0;
+  font-family: var(--title-font);
+  font-weight: bold;
+  font-size: 1.8rem;
+  margin: 2rem 0;
 }
 
 footer {
-	box-sizing: border-box;
-	width: 100%;
-	padding: 1rem;
-	text-align: center;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 1rem;
+  text-align: center;
 }
 
 /* スマホ対応（縦並びに戻す） */
 @media (max-width: 768px) {
-	body {
-		font-size: 90%;
-	}
+  body {
+    font-size: 90%;
+  }
 
-	section.content {
-		padding: 3rem 5%;
-	}
+  section.content {
+    padding: 3rem 5%;
+  }
 }
 
 /* markdown-body の中にあるリストのスタイルを強制的に復活させる */

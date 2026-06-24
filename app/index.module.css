@@ -45,13 +45,12 @@ section.content.blog {
     top: 50%;
     transform: translate(-50%, -50%);
     z-index: 50;
-    border-radius: 0 1.2em 0 1.2em;
+    border-radius: 0 3rem 0 3rem;
     background-color: var(--white);
 
     h1 {
         margin: 0;
         color: #3f3f3f;
-        font-size: inherit;
         letter-spacing: .2rem;
     }
 }
@@ -432,12 +431,10 @@ section.content.blog {
     }
 
     .header_container {
-        font-size: max(7vw, 2rem);
         letter-spacing: 0;
     }
 
     .h1_container h1 {
-        font-size: max(7vw, 2rem);
         letter-spacing: .1rem;
     }
 

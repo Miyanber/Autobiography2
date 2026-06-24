@@ -1,25 +1,29 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import favicon from './favicon.ico'
 import Image from "next/image";
 import Link from "next/link"
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+import { Hina_Mincho, Zen_Kaku_Gothic_New } from 'next/font/google';
+
+// フォントの設定（display: 'swap' も自動で最適化されます）
+const hinaMincho = Hina_Mincho({
+  weight: '400',
+  subsets: ['latin'],
+  variable: '--font-hina',
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+const zenKaku = Zen_Kaku_Gothic_New({
+  weight: ['400', '700'],
+  subsets: ['latin'],
+  variable: '--font-zen',
 });
 
 export const metadata: Metadata = {
   metadataBase: new URL(
     process.env.NODE_ENV === 'production'
-      ? 'https://miyanber.com' // 👈 本番のドメイン（決まっていれば）
-      : 'http://localhost:3000' // 👈 ローカル開発環境
+      ? 'https://miyanber.com' // 本番のドメイン（決まっていれば）
+      : 'http://localhost:3000' // ローカル開発環境
   ),
   title: "Miyanber's Portfolio",
   description: "学生エンジニア Miyanber のポートフォリオサイトです。",
@@ -48,7 +52,7 @@ export default function RootLayout({
   return (
     <html
       lang="ja"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${hinaMincho.variable} ${zenKaku.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
         <header>
