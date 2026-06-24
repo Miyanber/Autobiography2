@@ -19,8 +19,8 @@ export default async function Home() {
     <>
       <section className={`${styles.index_container}`}>
         <div className={styles.header_container}>
-          <div className={`${styles.h1_container} p-6 md:p-10`}>
-            <h1 className="text-4xl md:text-5xl">Miyanber</h1>
+          <div className={`${styles.h1_container} p-6 md:p-10 lg:p-12`}>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl">Miyanber</h1>
           </div>
           <Image className={styles['img-1']} src={drumsImg} alt="ドラム" priority />
           <Image className={styles['img-2']} src={oceanImg} alt="OceanArrow (Minecraft)" priority />
@@ -98,7 +98,7 @@ export default async function Home() {
       </section>
 
       <section className={`content ${styles.blog} bg-[#e3f0f1]`}>
-        <h2 className="text-center">Blog</h2>
+        <h2 className="text-center">Blogs</h2>
         <div className={styles.blogposts}>
           {blogPosts.map((blogPost) => (
             <Link 
