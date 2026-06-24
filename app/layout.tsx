@@ -1,12 +1,11 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import favicon from './favicon.ico'
+import favicon from './favicon.ico';
 import Image from "next/image";
-import Link from "next/link"
+import Link from "next/link";
 
 import { Hina_Mincho, Zen_Kaku_Gothic_New } from 'next/font/google';
 
-// フォントの設定（display: 'swap' も自動で最適化されます）
 const hinaMincho = Hina_Mincho({
   weight: '400',
   subsets: ['latin'],
@@ -22,8 +21,8 @@ const zenKaku = Zen_Kaku_Gothic_New({
 export const metadata: Metadata = {
   metadataBase: new URL(
     process.env.NODE_ENV === 'production'
-      ? 'https://miyanber.com' // 本番のドメイン（決まっていれば）
-      : 'http://localhost:3000' // ローカル開発環境
+      ? 'https://miyanber.com'
+      : 'http://localhost:3000'
   ),
   title: "Miyanber's Portfolio",
   description: "学生エンジニア Miyanber のポートフォリオサイトです。",
@@ -34,7 +33,7 @@ export const metadata: Metadata = {
     siteName: "Miyanber's Portfolio",
     images: [
       {
-        url: "/ogp_image.webp", // シェアされた時の画像
+        url: "/ogp_image.webp",
         width: 1200,
         height: 630,
       },
@@ -50,23 +49,21 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="ja"
-      className={`${hinaMincho.variable} ${zenKaku.variable} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col">
-        <header>
-          <Link href="/">
-            <Image 
-              className="myr-icon" 
-              src={favicon} 
-              alt="アイコン"
-            />
+    <html lang="ja" className={`${hinaMincho.variable} ${zenKaku.variable} h-full antialiased`}>
+      <body className="min-h-full flex flex-col bg-white text-black font-[var(--body-font)]">
+        <header className="flex items-center justify-between gap-4 border-b border-slate-200 px-6 py-4">
+          <Link href="/" className="inline-flex items-center gap-3">
+            <div className="relative h-10 w-10 overflow-hidden rounded-full bg-slate-100">
+              <Image src={favicon} alt="アイコン" fill className="object-contain" />
+            </div>
+            <span className="text-lg font-semibold">Miyanber</span>
           </Link>
-          <a href="" className="header-text">Miyanber.com</a>
+          <Link href="/" className="text-sm text-slate-600 hover:text-slate-900">
+            Miyanber.com
+          </Link>
         </header>
         {children}
-        <footer>
+        <footer className="mt-auto border-t border-slate-200 py-6 text-center text-sm text-slate-500">
           &copy; 2026 Miyanber | Powered by Next.js
         </footer>
       </body>

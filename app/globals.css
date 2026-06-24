@@ -11,6 +11,44 @@
   --accent-color: #0b669b;
   --title-font: var(--font-hina);
   --body-font: var(--font-zen);
+
+  /* カスタムカラー */
+  --color-paper-bg: #fffbf4;
+  --color-paper-border: #e6dfd2;
+  --color-title-border: #81a7bd;
+  --color-toc-border: #cecece;
+
+  /* アニメーション定義 */
+  @keyframes slide {
+    0% {
+      left: 0;
+      width: 0;
+    }
+    75% {
+      width: 100%;
+    }
+    100% {
+      left: 100%;
+      width: 100%;
+    }
+  }
+
+  @keyframes slide-reverse {
+    0% {
+      right: 0;
+      width: 0;
+    }
+    75% {
+      width: 100%;
+    }
+    100% {
+      right: 100%;
+      width: 100%;
+    }
+  }
+
+  --animate-slide: slide 0.8s ease-in-out forwards;
+  --animate-slide-reverse: slide-reverse 0.8s ease-in-out forwards;
 }
 
 @layer base {
@@ -46,72 +84,6 @@ h1,
 h2 {
   font-family: var(--title-font);
   margin: 2rem 0;
-}
-
-header {
-  position: fixed;
-  width: 100%;
-  height: 3rem;
-  z-index: 100;
-
-  a {
-    text-decoration: none;
-    color: var(--black);
-  }
-
-  .header-text {
-    display: block;
-    margin: 0;
-    margin: 1rem 7rem;
-    text-shadow: .1rem .1rem .2rem var(--white);
-    width: max-content;
-    cursor: pointer;
-  }
-
-  .myr-icon {
-    position: absolute;
-    width: 3rem;
-    left: 2rem;
-    top: 1rem;
-    cursor: pointer;
-  }
-}
-
-section.content {
-  box-sizing: border-box;
-  width: 100%;
-  padding: 5rem 20%;
-}
-
-a {
-  text-decoration: none;
-  color: var(--black);
-  cursor: pointer;
-}
-
-.header-title {
-  font-family: var(--title-font);
-  font-weight: bold;
-  font-size: 1.8rem;
-  margin: 2rem 0;
-}
-
-footer {
-  box-sizing: border-box;
-  width: 100%;
-  padding: 1rem;
-  text-align: center;
-}
-
-/* スマホ対応（縦並びに戻す） */
-@media (max-width: 768px) {
-  body {
-    font-size: 90%;
-  }
-
-  section.content {
-    padding: 3rem 5%;
-  }
 }
 
 /* markdown-body の中にあるリストのスタイルを強制的に復活させる */

@@ -1,7 +1,5 @@
 import { getAllBlogPost, getBlogPost } from "@/libs/microcms";
 import { extractExcerpt } from "@/utils/text";
-
-import styles from "./blog-detail.module.css"
 import 'github-markdown-css/github-markdown-light.css';
 import 'katex/dist/katex.min.css';
 
@@ -24,20 +22,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { id } = await params;
   const blogPost = await getBlogPost(id);
   if (blogPost == null) {
-    notFound()
+    notFound();
   }
 
-  const description = extractExcerpt(blogPost.content)
-
-  const title = `Blog - ${blogPost.title} | Miyanber.com`
+  const description = extractExcerpt(blogPost.content);
+  const title = `Blog - ${blogPost.title} | Miyanber.com`;
 
   const metadata: Metadata = {
-    title: title,
-    description: description,
+    title,
+    description,
     openGraph: {
-      title: title,
-      description: description,
-
+      title,
+      description,
     },
   };
 
@@ -54,7 +50,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
   }
 
-  return metadata
+  return metadata;
 }
 
 export default async function BlogRouterPage({ params }: Props) {
@@ -62,43 +58,38 @@ export default async function BlogRouterPage({ params }: Props) {
 
   const blogPost = await getBlogPost(id);
   if (blogPost == null) {
-    return notFound()
+    return notFound();
   }
 
-  const published_at = new Date(blogPost.publishedAt)
+  const published_at = new Date(blogPost.publishedAt);
 
   return (
-    <>
-      <section className={styles.content}>
-        <div className="header-title">Blog</div>
-        <div className={styles['paper-container']}>
-          <div className={styles.date}>
-            <span className={styles['date-before']}>Date: </span>
-            {published_at.toLocaleDateString()}
-          </div>
-          <div className={styles['title-wrapper']}>
-            <div className={styles.title}>
-              <span className={styles['title-before']}>Title: </span>
-              {blogPost.title}
-            </div>
-          </div>
-          <div
-            className={`markdown-body ${styles['markdown-body']} bg-inherit!`}
-          >
-            <ReactMarkdown
-              remarkPlugins={[
-                remarkMath, 
-                [remarkToc, { heading: '目次', maxDepth: 3 }] // 「目次」という見出しの下に、H3までの目次を自動生成する設定
-              ]}
-              // rehypePlugins に rehypeSlug を追加（見出しに id="見出し名" を自動で振る）
-              rehypePlugins={[rehypeRaw, rehypeSlug, rehypeKatex]}
-            >
-              {blogPost.content}
-            </ReactMarkdown>
+    <section className="py-20 px-4 md:px-12">
+      <div className="text-4xl font-bold mb-10">Blog</div>
+      <div className="rounded-[2rem] border border-[#e6dfd2] bg-[#fffbf4] p-8 md:p-12 shadow-[0_1px_2px_rgba(0,0,0,0.1),0_8px_20px_rgba(0,0,0,0.08)]">
+        <div className="mb-4 text-right text-lg font-[var(--title-font)]">
+          <span className="font-semibold">Date: </span>
+          {published_at.toLocaleDateString()}
+        </div>
+        <div className="mb-8 border-b-4 border-[#81a7bd] pb-6 font-[var(--title-font)]">
+          <div className="text-2xl font-medium leading-8">
+            <span className="font-normal text-xl">Title: </span>
+            {blogPost.title}
           </div>
         </div>
-      </section>
-    </>
+        <div className="markdown-body bg-inherit">
+          <ReactMarkdown
+            remarkPlugins={[
+              remarkMath,
+              [remarkToc, { heading: '目次', maxDepth: 3 }],
+            ]}
+            rehypePlugins={[rehypeRaw, rehypeSlug, rehypeKatex]}
+          >
+            {blogPost.content}
+          </ReactMarkdown>
+        </div>
+      </div>
+    </section>
   );
 }
 
@@ -106,12 +97,8 @@ export default async function BlogRouterPage({ params }: Props) {
  * SSG用のURLリストを事前に生成する関数
  */
 export async function generateStaticParams() {
-  // 1. microCMS から全記事のデータを取得する（idのリストが欲しい）
-  // ※ 以前作った全記事取得用の関数（例: getAllBlogPosts）があればそれを使う
-  const posts = await getAllBlogPost(100); 
-
-  // 2. Next.jsが理解できる形（オブジェクトの配列）にして返す
+  const posts = await getAllBlogPost(100);
   return posts.map((post) => ({
-    id: post.id, // [id] の部分にハメ込む文字列を指定
+    id: post.id,
   }));
 }
