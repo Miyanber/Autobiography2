@@ -72,6 +72,7 @@
   h1,
   h2 {
     font-weight: 700;
+    /* 外部ライブラリを使用する場合、本当はあまりここでフォント指定すべきではない */
     font-family: var(--font-title);
     @apply text-zinc-950;
   }
@@ -80,6 +81,21 @@
     line-height: 1.625;
     margin: 1rem 0;
   }
+}
+
+.markdown-body :is(h1, h2) {
+  /* ブラウザ標準、または親要素(.markdown-body)が指定する本来のフォントに「差し戻す」 */
+  font-family: revert;
+  font-size: revert;
+}
+
+.markdown-body :is(h2) {
+  padding: revert;
+  margin: revert;
+}
+
+.markdown-body {
+  background-color: inherit !important;
 }
 
 /* markdown-body の中にあるリストのスタイルを強制的に復活させる */
