@@ -67,11 +67,11 @@ export default async function BlogRouterPage({ params }: Props) {
     <section className="py-20 px-4 md:px-12">
       <div className="text-4xl font-bold mb-10">Blog</div>
       <div className="rounded-[2rem] border border-[#e6dfd2] bg-[#fffbf4] p-8 md:p-12 shadow-[0_1px_2px_rgba(0,0,0,0.1),0_8px_20px_rgba(0,0,0,0.08)]">
-        <div className="mb-4 text-right text-lg font-[var(--title-font)]">
+        <div className="mb-4 text-right text-lg font-[var(--font-title)]">
           <span className="font-semibold">Date: </span>
           {published_at.toLocaleDateString()}
         </div>
-        <div className="mb-8 border-b-4 border-[#81a7bd] pb-6 font-[var(--title-font)]">
+        <div className="mb-8 border-b-4 border-[#81a7bd] pb-6 font-[var(--font-title)]">
           <div className="text-2xl font-medium leading-8">
             <span className="font-normal text-xl">Title: </span>
             {blogPost.title}

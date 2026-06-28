@@ -50,16 +50,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja" className={`${hinaMincho.variable} ${zenKaku.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col bg-white text-black font-[var(--body-font)]">
-        <header className="flex items-center justify-between gap-4 border-b border-slate-200 px-6 py-4">
-          <Link href="/" className="inline-flex items-center gap-3">
-            <div className="relative h-10 w-10 overflow-hidden rounded-full bg-slate-100">
+      <body className="min-h-full flex flex-col bg-white text-black font-(--font-body)">
+        <header className="fixed z-50 flex items-center justify-between gap-4 px-8 py-4">
+          <Link href="/" className="inline-flex items-start gap-5">
+            <div className="relative h-12 w-12 overflow-hidden bg-slate-100">
               <Image src={favicon} alt="アイコン" fill className="object-contain" />
             </div>
-            <span className="text-lg font-semibold">Miyanber</span>
-          </Link>
-          <Link href="/" className="text-sm text-slate-600 hover:text-slate-900">
-            Miyanber.com
+            <span className="text-base font-semibold text-slate-600 hover:text-slate-900">Miyanber.com</span>
           </Link>
         </header>
         {children}

@@ -45,7 +45,7 @@ export default async function Works() {
                 )}
               </div>
               <div className="flex-1">
-                <div className="pb-3 text-xl font-bold font-[var(--title-font)] text-slate-900">
+                <div className="pb-3 text-xl font-bold font-[var(--font-title)] text-slate-900">
                   {work.title}
                 </div>
                 <div className="mt-2 mb-4 h-1 w-20 rounded-sm bg-[#bbbbbb]" />

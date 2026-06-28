@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 /* :rootにも変換される */
-@theme {
+@theme inline {
   /* フォントの設定（Next.js の next/font/google と連携） */
   --font-hina: var(--font-hina), serif;
   --font-zen: var(--font-zen), sans-serif;
@@ -9,8 +9,8 @@
   --black: #111111;
   --white: #fafafa;
   --accent-color: #0b669b;
-  --title-font: var(--font-hina);
-  --body-font: var(--font-zen);
+  --font-title: var(--font-hina);
+  --font-body: var(--font-zen);
 
   /* カスタムカラー */
   --color-paper-bg: #fffbf4;
@@ -29,7 +29,7 @@
     }
     100% {
       left: 100%;
-      width: 100%;
+      width: 0;
     }
   }
 
@@ -43,7 +43,7 @@
     }
     100% {
       right: 100%;
-      width: 100%;
+      width: 0;
     }
   }
 
@@ -52,38 +52,34 @@
 }
 
 @layer base {
+  body {
+    margin: 0;
+    background-color: var(--white);
+    @apply text-zinc-900;
+    font-family: var(--font-body);
+  }
+
   h1 {
     font-size: 1.875rem;
-    font-weight: 700;
-    margin-bottom: 1.5rem;
   }
 
   h2 {
-    font-size: 1.5rem;
+    font-size: 1.625rem;
+    margin: 3rem 0;
+    padding: 1rem 0;
+  }
+
+  h1,
+  h2 {
     font-weight: 700;
-    margin-bottom: 1rem;
-    margin-top: 2rem;
-    padding-bottom: 0.5rem;
+    font-family: var(--font-title);
+    @apply text-zinc-950;
   }
 
   p {
-    color: #0f172a;
     line-height: 1.625;
-    margin-bottom: 1rem;
+    margin: 1rem 0;
   }
-}
-
-body {
-  margin: 0;
-  background-color: var(--white);
-  color: var(--black);
-  font-family: var(--body-font);
-}
-
-h1,
-h2 {
-  font-family: var(--title-font);
-  margin: 2rem 0;
 }
 
 /* markdown-body の中にあるリストのスタイルを強制的に復活させる */

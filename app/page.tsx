@@ -8,6 +8,7 @@ import vscodeImg from './img/vscode_image.webp';
 import works from '@/data/works.json';
 import Link from "next/link";
 import { getAllBlogPost } from "@/libs/microcms";
+import { Section } from "@/components/Section";
 
 export default async function Home() {
   const blogPosts = await getAllBlogPost(4);
@@ -15,27 +16,27 @@ export default async function Home() {
 
   return (
     <>
-      <section className="relative w-full min-h-[100svh] overflow-hidden">
+      <Section className="relative w-full min-h-svh overflow-hidden">
         <div className="absolute inset-0 left-1/2 top-1/2 w-[70%] h-[70%] max-h-[100vw] -translate-x-1/2 -translate-y-1/2 rounded-[0_5rem_0_5rem] overflow-hidden">
-          <div className="absolute left-0 top-0 w-[52%] h-[calc(47%-1rem)] overflow-hidden filter grayscale-[60%] contrast-[70%] z-[15]">
+          <div className="absolute left-0 top-0 w-[52%] h-[calc(47%-0.5rem)] md:h-[calc(47%-1rem)] md: overflow-hidden filter grayscale-60 contrast-70 z-15">
             <Image src={drumsImg} alt="ドラム" fill className="object-cover" priority />
           </div>
-          <div className="absolute right-0 top-0 w-[calc(48%-1rem)] h-[53%] overflow-hidden rounded-[0_1.2em_0_0] filter grayscale-[60%] contrast-[70%] z-[30]">
+          <div className="absolute right-0 top-0 w-[calc(48%-0.5rem)] md:w-[calc(48%-1rem)] h-[53%] overflow-hidden rounded-[0_1.2em_0_0] filter grayscale-60 contrast-70 z-30">
             <Image src={oceanImg} alt="OceanArrow (Minecraft)" fill className="object-cover" priority />
           </div>
-          <div className="absolute right-0 bottom-0 w-[52%] h-[calc(47%-1rem)] overflow-hidden filter grayscale-[60%] contrast-[70%] z-[25]">
+          <div className="absolute right-0 bottom-0 w-[52%] h-[calc(47%-0.5rem)] md:h-[calc(47%-1rem)] overflow-hidden filter grayscale-60 contrast-70 z-25">
             <Image src={vscodeImg} alt="コーディング" fill className="object-cover" priority />
           </div>
-          <div className="absolute left-0 bottom-0 w-[calc(48%-1rem)] h-[53%] overflow-hidden rounded-[0_0_0_1.2em] filter grayscale-[60%] contrast-[70%] z-[20]">
+          <div className="absolute left-0 bottom-0 w-[calc(48%-0.5rem)] md:w-[calc(48%-1rem)] h-[53%] overflow-hidden rounded-[0_0_0_1.2em] filter grayscale-60 contrast-70 z-20">
             <Image src={trackImg} alt="陸上" fill className="object-cover" priority />
           </div>
-          <div className="absolute left-1/2 top-1/2 z-50 -translate-x-1/2 -translate-y-1/2 rounded-[0_3rem_0_3rem] bg-white p-6 md:p-10 lg:p-12">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl">Miyanber</h1>
+          <div className="absolute left-1/2 top-1/2 z-50 -translate-x-1/2 -translate-y-1/2 rounded-[0_3rem_0_3rem] bg-white p-6 md:p-8 lg:p-12">
+            <h1 className="text-4xl text-zinc-700 tracking-wider md:text-5xl lg:text-5xl m-0">Miyanber</h1>
           </div>
         </div>
-      </section>
+      </Section>
 
-      <section className="bg-[#e3f0f1] py-20 px-6 md:px-12 leading-[1.75rem]">
+      <Section bg="bg-[#e3f0f1]">
         <h2 className="text-center">About Me</h2>
         <p className="text-center my-12">
           <strong>フルスタック・クリエイター ｜ Python, Java, JavaScript</strong>
@@ -50,29 +51,33 @@ export default async function Home() {
         <p className="text-center my-12">
           陸上・ドラム・システム開発が趣味です。
         </p>
-      </section>
+      </Section>
 
-      <section className="py-20 px-6 md:px-12">
+      <Section>
         <h2 className="text-center">Works</h2>
-        <div className="mx-auto mt-12 flex max-w-[1000px] flex-col items-center gap-24">
+        <div className="mx-auto mt-12 flex max-w-250 flex-col items-center gap-24">
           {displayedWorks.map((work) => {
             const cardContent = (
               <>
-                <div className="relative overflow-hidden rounded-xl transition-transform duration-300 ease-in-out group-hover:scale-105 w-full md:w-[40%] aspect-[16/9]">
+                <div className="relative overflow-hidden rounded-xl transition-transform duration-300 ease-in-out group-hover:scale-105 w-full md:w-[47%] aspect-video">
                   <Image
                     src={work.thumbnail ? work.thumbnail : '/main/img/NO_IMAGE.webp'}
                     alt="サムネイル"
                     fill
-                    className="object-cover"
+                    className="object-contain"
                   />
                 </div>
-                <div className="flex-1">
-                  <div className="text-2xl font-extrabold text-[#1a1a1a] mb-4 font-[var(--title-font)]">
+                <div className="group-even:flex group-even:flex-col items-end md:w-[47%]">
+                  <div className="text-[1.4rem] text-[#1a1a1a] mb-4 font-title font-semibold">
                     {work.title}
                   </div>
-                  <div className="relative h-1 w-20 mb-6 bg-[linear-gradient(90deg,#007bff,#00d4ff)] overflow-hidden">
-                    <span className="absolute inset-y-0 left-0 w-0 bg-white transition-all duration-300 ease-in-out group-hover:w-full" />
-                  </div>
+                  <div className="
+                    relative w-20 h-1 mb-6 overflow-hidden
+                    bg-linear-to-r from-[#007bff] to-[#00d4ff]
+                    after:content-[''] after:absolute after:top-0 after:block after:w-0 after:h-full after:bg-white
+                    group-odd:group-hover:after:animate-slide
+                    group-even:group-hover:after:animate-slide-reverse
+                  " />
                   <div className="text-[#444] leading-8">
                     {work.overview}
                   </div>
@@ -80,55 +85,50 @@ export default async function Home() {
               </>
             );
 
+            const Tag = work.link ? "a" : "div";
+            const linkProps = work.link
+              ? { href: work.link, target: "_blank", rel: "noopener noreferrer" }
+              : {};
+
             return (
-              <div
+              <Tag
                 key={work.id}
-                className="group flex flex-col gap-6 md:flex-row md:items-center md:gap-16 even:md:flex-row-reverse w-full"
+                className="group flex flex-col gap-6 md:flex-row md:items-center md:gap-16 md:justify-between even:md:flex-row-reverse w-full"
+                {...linkProps}
               >
-                {work.link ? (
-                  <a
-                    href={work.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="contents"
-                  >
-                    {cardContent}
-                  </a>
-                ) : (
-                  <div className="contents">{cardContent}</div>
-                )}
-              </div>
-            );
+                {cardContent}
+              </Tag>
+            ) 
           })}
         </div>
         <div className="mx-auto mt-12 text-center">
-          <Link href="/works" className="inline-flex items-center justify-center rounded border border-black px-8 py-3 text-black font-[var(--title-font)] transition hover:bg-black hover:text-white">
+          <Link href="/works" className="inline-flex items-center justify-center border border-black px-10 py-3 my-8 text-black font-title text-[1.1rem] transition hover:bg-black hover:text-white">
             View All
           </Link>
         </div>
-      </section>
+      </Section>
 
-      <section className="bg-[#e3f0f1] py-20 px-6 md:px-12">
+      <Section bg="bg-[#e3f0f1]">
         <h2 className="text-center">Blogs</h2>
-        <div className="mx-auto mt-12 grid max-w-[1000px] gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mx-auto my-12 grid max-w-250 gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {blogPosts.map((blogPost) => (
             <Link
               key={blogPost.id}
               href={`/blog/${blogPost.id}`}
-              className="flex justify-center"
+              className="group hover:translate-x-[-0.2rem] hover:translate-y-[-0.2rem] hover:shadow-[0.3rem_0.3rem_0.4rem_#bebebe] transition duration-300"
             >
-              <div className="group flex w-full max-w-[12rem] flex-col items-center cursor-pointer transition duration-300 ease-in-out">
-                <div className="relative mb-4 h-36 w-36 overflow-hidden rounded-xl transition-transform duration-300 ease-in-out group-hover:scale-105">
+              <div className="group flex w-full flex-col items-center cursor-pointer transition duration-300 ease-in-out">
+                <div className="relative h-36 w-36 overflow-hidden transition-transform duration-300 ease-in-out group-hover:scale-105">
                   <Image
                     src={blogPost.eyecatch ? blogPost.eyecatch.url : '/main/img/NO_IMAGE.webp'}
                     alt="サムネイル"
                     fill
-                    className="object-cover"
+                    className="object-contain"
                   />
                   <div className="absolute inset-0 bg-white opacity-0 transition-opacity duration-300 ease-in-out group-hover:opacity-15" />
                 </div>
                 <div className="text-center w-full">
-                  <div className="text-lg font-bold leading-tight" style={{ display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
+                  <div className="leading-tight h-10 m-4" style={{ display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
                     {blogPost.title}
                   </div>
                   <div className="mt-3 text-[#5a5a5a]">
@@ -143,7 +143,7 @@ export default async function Home() {
             </Link>
           ))}
         </div>
-      </section>
+      </Section>
 
       <section className="py-20 px-6 md:px-12">
         <h2 className="text-center">Contact</h2>
