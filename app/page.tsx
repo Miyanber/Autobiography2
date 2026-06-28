@@ -102,7 +102,7 @@ export default async function Home() {
           })}
         </div>
         <div className="mx-auto mt-12 text-center">
-          <Link href="/works" className="inline-flex items-center justify-center border border-black px-10 py-3 my-8 text-black font-title text-[1.1rem] transition hover:bg-black hover:text-white">
+          <Link href="/works" className="inline-flex items-center justify-center border border-black px-10 py-3 my-8 text-black font-title text-[1.1rem] transition duration-500 hover:bg-black hover:text-white">
             View All
           </Link>
         </div>
