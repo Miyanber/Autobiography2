@@ -1,7 +1,7 @@
 import CustomButton from '@/components/Button';
 import { Section } from '@/components/Section';
 import { Metadata } from 'next';
-import favicon from '@/app/favicon.ico';
+import myrIcon from '@/app/img/icon2.webp';
 
 import Link from "next/link";
 import Image from 'next/image';
@@ -39,19 +39,19 @@ export default function About() {
         
         <div className="max-w-4xl mx-auto px-4">
           {/* 経歴・メッセージセクション */}
-          <div className="text-zinc-600 leading-8 mb-16 max-w-2xl mx-auto text-center md:text-left">
+          <div className="text-zinc-600 leading-8 mb-16 max-w-2xl mx-auto text-center">
             <p className="mb-4">神戸を拠点に活動している学生エンジニアです。</p>
-            <p className="mb-4">2026年より本格的にシステム開発やWeb制作を開始。</p>
+            <p className="mb-4">2021年より本格的にシステム開発やWeb制作を開始。</p>
             <p className="mb-4">日常の不便をコードで解決することをモットーに、フルスタックな開発を行っています。</p>
           </div>
 
           {/* 写真 ＆ プロフィール詳細の2カラムレイアウト */}
-          <div className="flex flex-col md:flex-row gap-12 items-center md:items-start border-t border-b border-zinc-200 py-16 mb-16">
+          <div className="flex flex-col md:flex-row gap-12 items-center border-t border-b border-zinc-200 py-16 mb-16">
             
             {/* 左側：プロフィール画像 */}
-            <div className="w-48 h-48 md:w-56 md:h-56 relative rounded-full overflow-hidden bg-zinc-100 shrink-0 shadow-sm">
+            <div className="w-48 h-48 md:w-56 md:h-56 relative overflow-hidden bg-zinc-100 shrink-0 shadow-sm">
               <Image 
-                src={favicon} // お手持ちのプロフィール画像パスに変更してください
+                src={myrIcon}
                 alt="プロフィール写真" 
                 fill 
                 className="object-cover"
@@ -59,25 +59,25 @@ export default function About() {
             </div>
 
             {/* 右側：基本情報テーブル */}
-            <div className="flex-grow w-full">
-              <h2 className="text-xl font-semibold text-zinc-800 mb-6 font-title">Miyanber</h2>
+            <div className="grow w-full">
+              <h2 className="text-2xl font-semibold text-zinc-800 mb-6 font-title">Miyanber <span className='text-xl'>(みやんば)</span></h2>
               
               <dl className="grid grid-cols-[100px_1fr] gap-y-4 text-sm md:text-base leading-relaxed text-zinc-600">
                 <dt className="font-semibold text-zinc-500">名称：</dt>
-                <dd>Miyanber（みやんば）</dd>
+                <dd>Seiya Miyazaki</dd>
 
-                <dt className="font-semibold text-zinc-500">所在地：</dt>
-                <dd>兵庫県（関西圏一円対応）</dd>
+                <dt className="font-semibold text-zinc-500">活動拠点：</dt>
+                <dd>神戸・大阪</dd>
 
                 <dt className="font-semibold text-zinc-500">お問い合わせ：</dt>
                 <dd>
-                  <a href="mailto:miyanba2984h@gmail.com" className="hover:text-black underline underline-offset-4">
-                    miyanba2984h@gmail.com
+                  <a href="mailto:seiya.miyazaki.pg@gmail.com" className="hover:text-black underline underline-offset-4">
+                    seiya.miyazaki.pg@gmail.com
                   </a>
                 </dd>
 
-                <dt className="font-semibold text-zinc-500">事業内容：</dt>
-                <dd>Webアプリケーション設計・開発、Minecraft MOD制作、フロントエンドコーディング等</dd>
+                <dt className="font-semibold text-zinc-500">活動内容：</dt>
+                <dd>Webアプリケーション設計・開発・運用、Minecraft MOD制作、フロントエンドコーディング等</dd>
                 
                 <dt className="font-semibold text-zinc-500">SNS：</dt>
                 <dd className="flex gap-4">
