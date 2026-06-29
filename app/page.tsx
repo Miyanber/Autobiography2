@@ -9,6 +9,7 @@ import works from '@/data/works.json';
 import Link from "next/link";
 import { getAllBlogPost } from "@/libs/microcms";
 import { Section } from "@/components/Section";
+import CustomButton from "@/components/Button";
 
 export default async function Home() {
   const blogPosts = await getAllBlogPost(4);
@@ -39,18 +40,20 @@ export default async function Home() {
       <Section bg="bg-[#e3f0f1]">
         <h2 className="text-center">About Me</h2>
         <p className="text-center my-12">
-          <strong>フルスタック・クリエイター ｜ Python, Java, JavaScript</strong>
+          <strong>マルチスタック・クリエイター</strong>
         </p>
         <p className="text-center my-12">
           「日常の不便をコードで解決する」をモットーに活動する学生エンジニアです。<br />
           Webアプリケーションの設計・開発から、Minecraft MODの制作まで、プラットフォームを問わず「動くもの」を形にしています。
         </p>
-        <p className="text-center my-12">
+        <p className="text-center my-8">
           Skills: Python / Django / JavaScript / GitHub / Minecraft Modding
         </p>
-        <p className="text-center my-12">
-          陸上・ドラム・システム開発が趣味です。
-        </p>
+        <div className="text-center">
+          <CustomButton href='/about'>
+            View Details
+          </CustomButton>
+        </div>
       </Section>
 
       <Section>
@@ -101,10 +104,10 @@ export default async function Home() {
             ) 
           })}
         </div>
-        <div className="mx-auto mt-12 text-center">
-          <Link href="/works" className="inline-flex items-center justify-center border border-black px-10 py-3 my-8 text-black font-title text-[1.1rem] transition duration-500 hover:bg-black hover:text-white">
+        <div className="text-center">
+          <CustomButton href="/works">
             View All
-          </Link>
+          </CustomButton>
         </div>
       </Section>
 

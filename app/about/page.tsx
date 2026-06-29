@@ -1,3 +1,4 @@
+import CustomButton from '@/components/Button';
 import { Section } from '@/components/Section';
 import { Metadata } from 'next';
 
@@ -35,17 +36,15 @@ export default function About() {
         </h1>
         <div className="max-w-2xl mx-auto text-center">
           <p className="my-6">
-            <strong>フルスタック・クリエイター ｜ Python, Java, JavaScript</strong>
+            <strong>マルチスタック・クリエイター</strong>
           </p>
           <p className="leading-8 text-zinc-600">
             「日常の不便をコードで解決する」をモットーに活動する学生エンジニアです。<br />
             Webアプリケーションの設計・開発から、Minecraft MODの制作まで、プラットフォームを問わず「動くもの」を形にしています。
           </p>
-          <div className="mt-12">
-            <Link href="/works" className="inline-flex items-center justify-center border border-black px-10 py-3 text-black font-title text-[1.1rem] transition duration-500 hover:bg-black hover:text-white">
-              作品一覧（Works）を見る
-            </Link>
-          </div>
+          <CustomButton href='/works'>
+            View All Works
+          </CustomButton>
         </div>
       </Section>
 

@@ -49,7 +49,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja" className={`${hinaMincho.variable} ${zenKaku.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col bg-white text-black font-(--font-body)">
+      <body className="min-h-full flex flex-col bg-white text-black font-(--font-body) text-sm">
         <header className="fixed z-50 flex items-center justify-between gap-4 px-8 py-4">
           <Navbar favicon={favicon} />
         </header>

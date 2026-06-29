@@ -14,7 +14,7 @@ export default function Navbar({ favicon }: NavProps) {
   const toggleMenu = () => setIsOpen(!isOpen);
 
   const navItems = [
-    { label: "About", href: "/#about" }, // スクロールさせる場合はid、別ページなら/about
+    { label: "About", href: "/about" }, // スクロールさせる場合はid、別ページなら/about
     { label: "Works", href: "/works" },
     { label: "Blogs", href: "/blog" },
     { label: "Contact", href: "/#contact" },
