@@ -55,7 +55,7 @@ export default async function Home() {
 
       <Section>
         <h2 className="text-center">Works</h2>
-        <div className="mx-auto mt-12 flex max-w-250 flex-col items-center gap-24">
+        <div className="mx-auto my-12 flex flex-col items-center gap-24">
           {displayedWorks.map((work) => {
             const cardContent = (
               <>
@@ -108,36 +108,34 @@ export default async function Home() {
         </div>
       </Section>
 
-      <Section bg="bg-[#e3f0f1]">
+      <Section bg="bg-[#e3f0f1]" px="px-4 sm:px-12">
         <h2 className="text-center">Blogs</h2>
-        <div className="mx-auto my-12 grid max-w-250 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mx-auto my-12 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-items-center">
           {blogPosts.map((blogPost) => (
             <Link
               key={blogPost.id}
               href={`/blog/${blogPost.id}`}
-              className="group hover:translate-x-[-0.2rem] hover:translate-y-[-0.2rem] hover:shadow-[0.3rem_0.3rem_0.4rem_#bebebe] transition duration-300"
+              className="group p-4 flex max-w-44 flex-col items-center cursor-pointer hover:translate-x-[-0.2rem] hover:translate-y-[-0.2rem] hover:shadow-[0.3rem_0.3rem_0.4rem_#bebebe] transition duration-300"
             >
-              <div className="group flex w-full flex-col items-center cursor-pointer transition duration-300 ease-in-out">
-                <div className="relative h-36 w-36 overflow-hidden transition-transform duration-300 ease-in-out group-hover:scale-105">
-                  <Image
-                    src={blogPost.eyecatch ? blogPost.eyecatch.url : '/main/img/NO_IMAGE.webp'}
-                    alt="サムネイル"
-                    fill
-                    className="object-contain"
-                  />
-                  <div className="absolute inset-0 bg-white opacity-0 transition-opacity duration-300 ease-in-out group-hover:opacity-15" />
+              <div className="relative h-36 w-36 overflow-hidden transition-transform duration-300 ease-in-out group-hover:scale-105">
+                <Image
+                  src={blogPost.eyecatch ? blogPost.eyecatch.url : '/main/img/NO_IMAGE.webp'}
+                  alt="サムネイル"
+                  fill
+                  className="object-contain"
+                />
+                <div className="absolute inset-0 bg-white opacity-0 transition-opacity duration-300 ease-in-out group-hover:opacity-15" />
+              </div>
+              <div className="text-center w-full">
+                <div className="leading-tight h-10 my-4" style={{ display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
+                  {blogPost.title}
                 </div>
-                <div className="text-center w-full">
-                  <div className="leading-tight h-10 m-4" style={{ display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
-                    {blogPost.title}
-                  </div>
-                  <div className="mt-3 text-[#5a5a5a]">
-                    {new Date(blogPost.publishedAt).toLocaleDateString('ja-JP', {
-                      year: 'numeric',
-                      month: 'long',
-                      day: 'numeric',
-                    })}
-                  </div>
+                <div className="mt-3 text-[#5a5a5a]">
+                  {new Date(blogPost.publishedAt).toLocaleDateString('ja-JP', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric',
+                  })}
                 </div>
               </div>
             </Link>
