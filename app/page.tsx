@@ -93,7 +93,7 @@ export default async function Home() {
             return (
               <Tag
                 key={work.id}
-                className="group flex flex-col gap-6 md:flex-row md:items-center md:gap-16 md:justify-between even:md:flex-row-reverse w-full"
+                className="group flex flex-col gap-6 sm:flex-row sm:items-center sm:gap-16 sm:justify-between even:sm:flex-row-reverse w-full"
                 {...linkProps}
               >
                 {cardContent}
