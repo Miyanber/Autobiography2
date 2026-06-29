@@ -127,7 +127,7 @@ export default async function Home() {
                 <div className="absolute inset-0 bg-white opacity-0 transition-opacity duration-300 ease-in-out group-hover:opacity-15" />
               </div>
               <div className="text-center w-full">
-                <div className="leading-tight h-10 my-4" style={{ display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
+                <div className="leading-tight h-10 my-4 line-clamp-2">
                   {blogPost.title}
                 </div>
                 <div className="mt-3 text-[#5a5a5a]">
