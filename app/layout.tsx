@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { Hina_Mincho, Zen_Kaku_Gothic_New } from 'next/font/google';
+import Navbar from "@/components/NavBar";
 
 const hinaMincho = Hina_Mincho({
   weight: '400',
@@ -52,12 +53,7 @@ export default function RootLayout({
     <html lang="ja" className={`${hinaMincho.variable} ${zenKaku.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col bg-white text-black font-(--font-body)">
         <header className="fixed z-50 flex items-center justify-between gap-4 px-8 py-4">
-          <Link href="/" className="inline-flex items-start gap-5">
-            <div className="relative h-12 w-12 overflow-hidden bg-slate-100">
-              <Image src={favicon} alt="アイコン" fill className="object-contain" />
-            </div>
-            <span className="text-base font-semibold text-slate-600 hover:text-slate-900">Miyanber.com</span>
-          </Link>
+          <Navbar favicon={favicon} />
         </header>
         {children}
         <footer className="mt-auto border-t border-slate-200 py-6 text-center text-sm text-slate-500">
