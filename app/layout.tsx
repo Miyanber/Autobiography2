@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import favicon from './favicon.ico';
-import Image from "next/image";
-import Link from "next/link";
 
 import { Hina_Mincho, Zen_Kaku_Gothic_New } from 'next/font/google';
 import Navbar from "@/components/NavBar";
