@@ -1,8 +1,10 @@
 import CustomButton from '@/components/Button';
 import { Section } from '@/components/Section';
 import { Metadata } from 'next';
+import favicon from '@/app/favicon.ico';
 
 import Link from "next/link";
+import Image from 'next/image';
 
 const copyBands = [
   { name: "ONE OK ROCK コピーバンド", playlistUrl: "https://open.spotify.com/..." },
@@ -31,20 +33,70 @@ export default function About() {
     <>
       {/* ヒーローセクション / 導入 */}
       <Section className="pt-32 pb-16">
-        <h1 className="text-center text-4xl font-semibold text-zinc-700 tracking-wider md:text-5xl mb-12">
+        <h1 className="text-center text-4xl font-semibold text-zinc-700 tracking-wider md:text-5xl mb-16">
           About Me
         </h1>
-        <div className="max-w-2xl mx-auto text-center">
-          <p className="my-6">
-            <strong>マルチスタック・クリエイター</strong>
-          </p>
-          <p className="leading-8 text-zinc-600">
-            「日常の不便をコードで解決する」をモットーに活動する学生エンジニアです。<br />
-            Webアプリケーションの設計・開発から、Minecraft MODの制作まで、プラットフォームを問わず「動くもの」を形にしています。
-          </p>
-          <CustomButton href='/works'>
-            View All Works
-          </CustomButton>
+        
+        <div className="max-w-4xl mx-auto px-4">
+          {/* 経歴・メッセージセクション */}
+          <div className="text-zinc-600 leading-8 mb-16 max-w-2xl mx-auto text-center md:text-left">
+            <p className="mb-4">神戸を拠点に活動している学生エンジニアです。</p>
+            <p className="mb-4">2026年より本格的にシステム開発やWeb制作を開始。</p>
+            <p className="mb-4">日常の不便をコードで解決することをモットーに、フルスタックな開発を行っています。</p>
+          </div>
+
+          {/* 写真 ＆ プロフィール詳細の2カラムレイアウト */}
+          <div className="flex flex-col md:flex-row gap-12 items-center md:items-start border-t border-b border-zinc-200 py-16 mb-16">
+            
+            {/* 左側：プロフィール画像 */}
+            <div className="w-48 h-48 md:w-56 md:h-56 relative rounded-full overflow-hidden bg-zinc-100 shrink-0 shadow-sm">
+              <Image 
+                src={favicon} // お手持ちのプロフィール画像パスに変更してください
+                alt="プロフィール写真" 
+                fill 
+                className="object-cover"
+              />
+            </div>
+
+            {/* 右側：基本情報テーブル */}
+            <div className="flex-grow w-full">
+              <h2 className="text-xl font-semibold text-zinc-800 mb-6 font-title">Miyanber</h2>
+              
+              <dl className="grid grid-cols-[100px_1fr] gap-y-4 text-sm md:text-base leading-relaxed text-zinc-600">
+                <dt className="font-semibold text-zinc-500">名称：</dt>
+                <dd>Miyanber（みやんば）</dd>
+
+                <dt className="font-semibold text-zinc-500">所在地：</dt>
+                <dd>兵庫県（関西圏一円対応）</dd>
+
+                <dt className="font-semibold text-zinc-500">お問い合わせ：</dt>
+                <dd>
+                  <a href="mailto:miyanba2984h@gmail.com" className="hover:text-black underline underline-offset-4">
+                    miyanba2984h@gmail.com
+                  </a>
+                </dd>
+
+                <dt className="font-semibold text-zinc-500">事業内容：</dt>
+                <dd>Webアプリケーション設計・開発、Minecraft MOD制作、フロントエンドコーディング等</dd>
+                
+                <dt className="font-semibold text-zinc-500">SNS：</dt>
+                <dd className="flex gap-4">
+                  <a href="https://github.com/Miyanber" target="_blank" rel="noopener noreferrer" className="hover:text-black underline">GitHub</a>
+                  {/* 必要に応じて X(Twitter) や Instagram もここに */}
+                </dd>
+              </dl>
+            </div>
+          </div>
+
+          {/* ボタンセクション */}
+          <div className="text-center">
+            <p className="my-6 text-zinc-700">
+              <strong>マルチスタック・クリエイター</strong>
+            </p>
+            <CustomButton href='/works'>
+              View All Works
+            </CustomButton>
+          </div>
         </div>
       </Section>
 
