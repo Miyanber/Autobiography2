@@ -142,11 +142,11 @@ export default function About() {// タブの状態管理 ('active' か 'archive
           {/* 右側：お好みの曲プレイリスト（1つだけiframeでプレイヤーとして残す） */}
           <div className="flex flex-col items-center">
             <h3 className="text-xl font-semibold mb-6 text-zinc-700 font-title">Favorite Tracks</h3>
-            <div className="w-full aspect-4/5 h-100">
+            <div className="w-full aspect-4/5 h-120 max-w-80">
               {/* ※YOUR_FAVORITE_PLAYLIST_ID を実際のSpotifyプレイリストIDに置き換えてください */}
               <iframe
                 title='My Favorite Playlist'
-                src="https://open.spotify.com/embed/playlist/YOUR_FAVORITE_PLAYLIST_ID?utm_source=generator"
+                src="https://open.spotify.com/embed/playlist/6YqOrZt5JmeKJE6T4luDas?utm_source=generator"
                 width="100%"
                 height="100%"
                 className='rounded-2xl border-0'
@@ -165,31 +165,37 @@ export default function About() {// タブの状態管理 ('active' か 'archive
         <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* デスク周り */}
           <div className="bg-white p-8 rounded-xl shadow-xs">
-            <h3 className="text-xl font-semibold mb-6 text-zinc-800 border-b-2 border-[#e3f0f1] pb-2">Desk Environment</h3>
+            <h3 className="text-xl font-semibold mb-6 text-zinc-800 border-b-2 border-[#e3f0f1] pb-2 font-title">Desk Environment</h3>
             <dl className="grid grid-cols-3 gap-y-4 text-sm text-[#444] leading-relaxed">
-              <dt className="font-semibold text-zinc-600">PC</dt>
-              <dd className="col-span-2">メインノートPC / 開発用タブレットデバイス</dd>
+              <dt className="font-semibold text-zinc-600">Home PC</dt>
+              <dd className="col-span-2">Lenovo Legion 750i</dd>
+
+              <dt className="font-semibold text-zinc-600">Main PC</dt>
+              <dd className="col-span-2">Surface Pro 12インチ</dd>
               
               <dt className="font-semibold text-zinc-600">Monitor</dt>
-              <dd className="col-span-2">外部ディスプレイモニター</dd>
+              <dd className="col-span-2">Dell 27 Plus QHD USB-Cモニター</dd>
+
+              <dt className="font-semibold text-zinc-600">Speaker</dt>
+              <dd className="col-span-2">Pebble V3</dd>
               
               <dt className="font-semibold text-zinc-600">Mouse</dt>
-              <dd className="col-span-2">エルゴノミクス / 高精度ワイヤレスマウス</dd>
+              <dd className="col-span-2">ERGO M575S SP</dd>
 
               <dt className="font-semibold text-zinc-600">Keyboard</dt>
-              <dd className="col-span-2">メカニカルキーボード</dd>
+              <dd className="col-span-2">Keychron K8 Pro</dd>
             </dl>
           </div>
 
           {/* ドラム機材 */}
           <div className="bg-white p-8 rounded-xl shadow-xs">
-            <h3 className="text-xl font-semibold mb-6 text-zinc-800 border-b-2 border-[#e3f0f1] pb-2">Drum Gear</h3>
+            <h3 className="text-xl font-semibold mb-6 text-zinc-800 border-b-2 border-[#e3f0f1] pb-2 font-title">Drum Gear</h3>
             <dl className="grid grid-cols-3 gap-y-4 text-sm text-[#444] leading-relaxed">
               <dt className="font-semibold text-zinc-600">Sticks</dt>
-              <dd className="col-span-2">愛用ドラムスティック</dd>
+              <dd className="col-span-2">Pearl 110HC</dd>
               
               <dt className="font-semibold text-zinc-600">Pedal</dt>
-              <dd className="col-span-2">ツインペダル / ドラムペダル</dd>
+              <dd className="col-span-2">Pearl Demonator P-932</dd>
               
               <dt className="font-semibold text-zinc-600">Hardware</dt>
               <dd className="col-span-2">その他調整用ツール、チューニングキー等</dd>

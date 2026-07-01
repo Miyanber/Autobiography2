@@ -34,7 +34,7 @@ export function CopyBands() {
   return (
     <div className="flex flex-col w-full max-w-80">
       <h3 className="text-xl font-semibold mb-6 text-zinc-700 text-center font-title">Copy Bands</h3>
-      <div className="flex flex-col h-100">
+      <div className="flex flex-col h-120 max-w-80">
         {/* タブボタン */}
         <div className="flex gap-4 mb-6 border-b border-zinc-200 pb-2">
           <button
