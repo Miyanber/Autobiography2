@@ -114,16 +114,8 @@ export default function About() {// タブの状態管理 ('active' か 'archive
               <p className="text-sm text-zinc-500 m-0">Google Developer Group On Campus での活動やエンジニアリングコミュニティへの参加</p>
             </li>
             <li className="border-b border-zinc-100 pb-4">
-              <span className="font-semibold text-zinc-800 block text-lg">神戸大学軽音楽部 ROCK</span>
-              <p className="text-sm text-zinc-500 m-0">部内でのバンド活動、ドラム担当</p>
-            </li>
-            <li className="border-b border-zinc-100 pb-4">
-              <span className="font-semibold text-zinc-800 block text-lg">神戸大学軽音サークル SoundS</span>
-              <p className="text-sm text-zinc-500 m-0">様々なコピーバンドやセッションへの参加</p>
-            </li>
-            <li className="border-b border-zinc-100 pb-4">
-              <span className="font-semibold text-zinc-800 block text-lg">大阪大学軽音サークル BeatCrazy</span>
-              <p className="text-sm text-zinc-500 m-0">他大学との交流や外部イベント・ライブでの演奏活動</p>
+              <span className="font-semibold text-zinc-800 block text-lg">神大軽音 ROCK / SoundS / 阪大軽音 BeatCrazy</span>
+              <p className="text-sm text-zinc-500 m-0">大学の枠を超えて3つの軽音団体に所属し、幅広いジャンルでドラムを演奏</p>
             </li>
           </ul>
           <p className="mt-8 text-xs text-zinc-400 text-right">※ 各活動の成果物や制作実績はWorksページに掲載しています。</p>
