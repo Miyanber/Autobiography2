@@ -24,7 +24,7 @@ export default function Navbar({ favicon }: NavProps) {
     <nav className="fixed top-0 left-0 z-100 w-full bg-white/80 backdrop-blur-md px-6 py-4 md:px-12">
       <div className="mx-auto flex max-w-7xl items-center justify-between">
         {/* ロゴ・サイト名 */}
-        <Link href="/#top" className="inline-flex items-start gap-5 z-40">
+        <Link href="/" className="inline-flex items-start gap-5 z-40">
           <div className="relative h-12 w-12 overflow-hidden bg-slate-100">
             <Image src={favicon} alt="アイコン" fill className="object-contain" />
           </div>

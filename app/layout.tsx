@@ -7,6 +7,7 @@ import Navbar from "@/components/NavBar";
 
 import { config } from '@fortawesome/fontawesome-svg-core'
 import '@fortawesome/fontawesome-svg-core/styles.css'
+import { ScrollToTopButton } from "@/components/ScrollToTopButton";
 config.autoAddCss = false
 
 const hinaMincho = Hina_Mincho({
@@ -61,6 +62,7 @@ export default function RootLayout({
         <footer className="mt-auto border-t border-slate-200 py-6 text-center text-sm text-slate-500">
           &copy; 2026 Miyanber | Powered by Next.js
         </footer>
+        <ScrollToTopButton></ScrollToTopButton>
       </body>
     </html>
   );
