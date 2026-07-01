@@ -1,5 +1,3 @@
-"use client";
-
 import CustomButton from '@/components/Button';
 import { Section } from '@/components/Section';
 import { Metadata } from 'next';
@@ -10,25 +8,7 @@ import { faSpotify, faXTwitter, faSquareGithub, faLinkedin } from '@fortawesome/
 
 import Link from "next/link";
 import Image from 'next/image';
-import { useState } from 'react';
-
-type Band = {
-  name: string;
-  playlistUrl: string;
-  status: "active" | "archive"; // optional, default to "active"
-};
-
-const copyBands: Band[] = [
-  // --- Active / Upcoming (現在・これから) ---
-  { name: "back number", playlistUrl: "https://open.spotify.com/...", status: "active" },
-  { name: "米津玄師", playlistUrl: "https://open.spotify.com/...", status: "active" },
-  { name: "優里", playlistUrl: "https://open.spotify.com/...", status: "active" },
-  { name: "Radiohead", playlistUrl: "https://open.spotify.com/...", status: "active" },
-  { name: "スーパー登山部", playlistUrl: "https://open.spotify.com/...", status: "active" },
-  { name: "Enfants", playlistUrl: "https://open.spotify.com/...", status: "active" },
-  // --- Archive (過去) ---
-  { name: "past band", playlistUrl: "https://open.spotify.com/...", status: "archive" },
-];
+import { CopyBands } from '@/components/CopyBands';
 
 export async function generateMetadata(): Promise<Metadata> {
   const description = "学生エンジニア Miyanber のプロフィールです。";
@@ -45,9 +25,6 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default function About() {// タブの状態管理 ('active' か 'archive' か)
-  const [activeTab, setActiveTab] = useState<"active" | "archive">("active");
-  const filteredBands = copyBands.filter(band => band.status === activeTab);
-  
   return (
     <>
       {/* ヒーローセクション / 導入 */}
@@ -158,31 +135,14 @@ export default function About() {// タブの状態管理 ('active' か 'archive
         <h2 className="text-center mb-4">Copy Bands & Playlists</h2>
         <p className="text-center text-zinc-500 mb-12">活動中のコピーバンドと、お気に入りの音楽・セットリスト</p>
         
-        <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
-          {/* 左側：コピーバンド一覧 & セトリボタン */}
-          <div className="flex flex-col">
-            <h3 className="text-xl font-semibold mb-6 text-zinc-700 text-center">Copy Bands</h3>
-            <div className="flex flex-col gap-4">
-              {copyBands.map((band, index) => (
-                <div key={index} className="flex flex-col sm:flex-row sm:items-center justify-between p-4 bg-zinc-50 rounded-lg border border-zinc-100 gap-3">
-                  <span className="font-medium text-zinc-800">{band.name} コピーバンド</span>
-                  <a
-                    href={band.playlistUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center text-xs font-semibold border border-zinc-400 text-zinc-700 px-4 py-2 rounded-full hover:bg-zinc-800 hover:text-white hover:border-zinc-800 transition duration-300 text-center"
-                  >
-                    Setlist Playlist
-                  </a>
-                </div>
-              ))}
-            </div>
-          </div>
+        <div className='flex flex-col md:flex-row justify-around gap-8 items-center'>
+          {/* 左側：コピーバンド一覧（タブ切り替え） */}
+          <CopyBands></CopyBands>
 
           {/* 右側：お好みの曲プレイリスト（1つだけiframeでプレイヤーとして残す） */}
           <div className="flex flex-col items-center">
-            <h3 className="text-xl font-semibold mb-6 text-zinc-700">Favorite Tracks</h3>
-            <div className="w-full aspect-4/5 max-h-115">
+            <h3 className="text-xl font-semibold mb-6 text-zinc-700 font-title">Favorite Tracks</h3>
+            <div className="w-full aspect-4/5 h-100">
               {/* ※YOUR_FAVORITE_PLAYLIST_ID を実際のSpotifyプレイリストIDに置き換えてください */}
               <iframe
                 title='My Favorite Playlist'
