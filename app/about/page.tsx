@@ -4,7 +4,7 @@ import { Metadata } from 'next';
 import myrIcon from '@/app/img/icon2.webp';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSpotify, faXTwitter, faSquareGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import { faSquareGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 
 import Link from "next/link";
 import Image from 'next/image';

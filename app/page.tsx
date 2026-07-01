@@ -149,7 +149,9 @@ export default async function Home() {
       <section className="py-20 px-6 md:px-12">
         <h2 className="text-center">Contact</h2>
         <p className="text-center">
-          Email: miyanba2984h@gmail.com
+          Email: <a href="mailto:seiya.miyazaki.pg@gmail.com" className="hover:text-black underline underline-offset-4">
+            seiya.miyazaki.pg@gmail.com
+          </a>
         </p>
       </section>
     </>

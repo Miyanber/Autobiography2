@@ -14,16 +14,16 @@ type Band = {
 
 const copyBandsData: Band[] = [
   // --- Active / Upcoming (現在・これから) ---
-  { name: "back number", playlistUrl: "https://open.spotify.com/...", status: "active", period: "" },
-  { name: "米津玄師", playlistUrl: "https://open.spotify.com/...", status: "active", period: "" },
-  { name: "優里", playlistUrl: "https://open.spotify.com/...", status: "active", period: "" },
-  { name: "Radiohead", playlistUrl: "https://open.spotify.com/...", status: "active", period: "" },
-  { name: "スーパー登山部", playlistUrl: "https://open.spotify.com/...", status: "active", period: "" },
-  { name: "Enfants", playlistUrl: "https://open.spotify.com/...", status: "active", period: "" },
-  { name: "MONO NO AWARE", playlistUrl: "https://open.spotify.com/...", status: "active", period: "" },
+  { name: "back number", status: "active", period: "" },
+  { name: "米津玄師", status: "active", period: "" },
+  { name: "優里", status: "active", period: "" },
+  { name: "Radiohead", status: "active", period: "" },
+  { name: "スーパー登山部", status: "active", period: "" },
+  { name: "Enfants", status: "active", period: "" },
+  { name: "MONO NO AWARE", status: "active", period: "" },
   // --- Archive (過去) ---
-  { name: "YOASOBI", playlistUrl: "https://open.spotify.com/...", status: "archive", period: "" },
-  { name: "ONE OK ROCK", playlistUrl: "https://open.spotify.com/...", status: "archive", period: "" },
+  { name: "YOASOBI", status: "archive", period: "" },
+  { name: "ONE OK ROCK", status: "archive", period: "" },
 ];
 
 
@@ -51,6 +51,7 @@ export function CopyBands() {
             className={`pb-2 px-4 font-semibold text-sm transition-colors duration-300 ${
               activeTab === "archive" ? "text-black border-b-2 border-black" : "text-zinc-400 hover:text-zinc-600"
             }`}
+            type="button"
           >
             Archive ({copyBandsData.filter(b => b.status === "archive").length})
           </button>
