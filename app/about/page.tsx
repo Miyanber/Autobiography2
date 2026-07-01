@@ -1,17 +1,33 @@
+"use client";
+
 import CustomButton from '@/components/Button';
 import { Section } from '@/components/Section';
 import { Metadata } from 'next';
 import myrIcon from '@/app/img/icon2.webp';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSpotify, faXTwitter, faSquareGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+
 import Link from "next/link";
 import Image from 'next/image';
+import { useState } from 'react';
 
-const copyBands = [
-  { name: "ONE OK ROCK コピーバンド", playlistUrl: "https://open.spotify.com/..." },
-  { name: "［Alexandros］ コピーバンド", playlistUrl: "https://open.spotify.com/..." },
-  { name: "KANA-BOON コピーバンド", playlistUrl: "https://open.spotify.com/..." },
-  { name: "米津玄師 コピーバンド", playlistUrl: "https://open.spotify.com/..." },
-  { name: "SEKAI NO OWARI コピーバンド", playlistUrl: "https://open.spotify.com/..." },
+type Band = {
+  name: string;
+  playlistUrl: string;
+  status: "active" | "archive"; // optional, default to "active"
+};
+
+const copyBands: Band[] = [
+  // --- Active / Upcoming (現在・これから) ---
+  { name: "back number", playlistUrl: "https://open.spotify.com/...", status: "active" },
+  { name: "米津玄師", playlistUrl: "https://open.spotify.com/...", status: "active" },
+  { name: "優里", playlistUrl: "https://open.spotify.com/...", status: "active" },
+  { name: "Radiohead", playlistUrl: "https://open.spotify.com/...", status: "active" },
+  { name: "スーパー登山部", playlistUrl: "https://open.spotify.com/...", status: "active" },
+  { name: "Enfants", playlistUrl: "https://open.spotify.com/...", status: "active" },
+  // --- Archive (過去) ---
+  { name: "past band", playlistUrl: "https://open.spotify.com/...", status: "archive" },
 ];
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -28,7 +44,10 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export default function About() {
+export default function About() {// タブの状態管理 ('active' か 'archive' か)
+  const [activeTab, setActiveTab] = useState<"active" | "archive">("active");
+  const filteredBands = copyBands.filter(band => band.status === activeTab);
+  
   return (
     <>
       {/* ヒーローセクション / 導入 */}
@@ -46,7 +65,7 @@ export default function About() {
           </div>
 
           {/* 写真 ＆ プロフィール詳細の2カラムレイアウト */}
-          <div className="flex flex-col md:flex-row gap-12 items-center border-t border-b border-zinc-200 py-16 mb-16">
+          <div className="flex flex-col md:flex-row gap-12 items-center border-t border-b border-zinc-200 py-20 mb-16">
             
             {/* 左側：プロフィール画像 */}
             <div className="w-48 h-48 md:w-56 md:h-56 relative overflow-hidden bg-zinc-100 shrink-0 shadow-sm">
@@ -60,28 +79,36 @@ export default function About() {
 
             {/* 右側：基本情報テーブル */}
             <div className="grow w-full">
-              <h2 className="text-2xl font-semibold text-zinc-800 mb-6 font-title">Miyanber <span className='text-xl'>(みやんば)</span></h2>
+              <h2 className="text-2xl font-semibold text-zinc-800 mt-0 mb-6 font-title tracking-wide">Miyanber <span className='text-xl'>(みやんば)</span></h2>
               
-              <dl className="grid grid-cols-[100px_1fr] gap-y-4 text-sm md:text-base leading-relaxed text-zinc-600">
-                <dt className="font-semibold text-zinc-500">名称：</dt>
+              <dl className="grid grid-cols-[120px_1fr] gap-y-4 text-sm md:text-base leading-relaxed text-zinc-600">
+                <dt className="font-semibold text-zinc-500">本名</dt>
                 <dd>Seiya Miyazaki</dd>
 
-                <dt className="font-semibold text-zinc-500">活動拠点：</dt>
+                <dt className="font-semibold text-zinc-500">所属</dt>
+                <dd>神戸大学システム情報学部システム情報学科</dd>
+
+                <dt className="font-semibold text-zinc-500">活動拠点</dt>
                 <dd>神戸・大阪</dd>
 
-                <dt className="font-semibold text-zinc-500">お問い合わせ：</dt>
+                <dt className="font-semibold text-zinc-500">お問い合わせ</dt>
                 <dd>
                   <a href="mailto:seiya.miyazaki.pg@gmail.com" className="hover:text-black underline underline-offset-4">
                     seiya.miyazaki.pg@gmail.com
                   </a>
                 </dd>
 
-                <dt className="font-semibold text-zinc-500">活動内容：</dt>
-                <dd>Webアプリケーション設計・開発・運用、Minecraft MOD制作、フロントエンドコーディング等</dd>
+                <dt className="font-semibold text-zinc-500">活動内容</dt>
+                <dd>Webアプリケーションの設計・開発・運用、GDGoC Kobe のイベント運営等</dd>
                 
-                <dt className="font-semibold text-zinc-500">SNS：</dt>
-                <dd className="flex gap-4">
-                  <a href="https://github.com/Miyanber" target="_blank" rel="noopener noreferrer" className="hover:text-black underline">GitHub</a>
+                <dt className="font-semibold text-zinc-500">SNS</dt>
+                <dd className="flex gap-4 text-2xl text-gray-600">
+                  <a href="https://github.com/Miyanber" target="_blank" rel="noopener noreferrer">
+                    <FontAwesomeIcon icon={faSquareGithub} className="hover:text-[#181717]" />
+                  </a>
+                  <a href="https://www.linkedin.com/in/%E8%81%96%E4%B9%9F-%E5%AE%AE%E5%B4%8E-90a4a2404/" target="_blank" rel="noopener noreferrer">
+                    <FontAwesomeIcon icon={faLinkedin} className="hover:text-[#0A66C2]" />
+                  </a>
                   {/* 必要に応じて X(Twitter) や Instagram もここに */}
                 </dd>
               </dl>
@@ -107,18 +134,18 @@ export default function About() {
           <ul className="flex flex-col gap-6 text-[#444] leading-8 list-none p-0 m-0">
             <li className="border-b border-zinc-100 pb-4">
               <span className="font-semibold text-zinc-800 block text-lg">GDGoC Kobe University</span>
-              <p className="text-sm text-zinc-500 m-0">Google Developer Groups On Campus での活動やエンジニアリングコミュニティへの参加</p>
+              <p className="text-sm text-zinc-500 m-0">Google Developer Group On Campus での活動やエンジニアリングコミュニティへの参加</p>
             </li>
             <li className="border-b border-zinc-100 pb-4">
-              <span className="font-semibold text-zinc-800 block text-lg">神戸大学軽音楽部ROCK</span>
+              <span className="font-semibold text-zinc-800 block text-lg">神戸大学軽音楽部 ROCK</span>
               <p className="text-sm text-zinc-500 m-0">部内でのバンド活動、ドラム担当</p>
             </li>
             <li className="border-b border-zinc-100 pb-4">
-              <span className="font-semibold text-zinc-800 block text-lg">神戸大学軽音サークルSoundS</span>
+              <span className="font-semibold text-zinc-800 block text-lg">神戸大学軽音サークル SoundS</span>
               <p className="text-sm text-zinc-500 m-0">様々なコピーバンドやセッションへの参加</p>
             </li>
             <li className="border-b border-zinc-100 pb-4">
-              <span className="font-semibold text-zinc-800 block text-lg">大阪大学軽音サークルBeatCrazy</span>
+              <span className="font-semibold text-zinc-800 block text-lg">大阪大学軽音サークル BeatCrazy</span>
               <p className="text-sm text-zinc-500 m-0">他大学との交流や外部イベント・ライブでの演奏活動</p>
             </li>
           </ul>
@@ -134,11 +161,11 @@ export default function About() {
         <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
           {/* 左側：コピーバンド一覧 & セトリボタン */}
           <div className="flex flex-col">
-            <h3 className="text-xl font-semibold mb-6 text-zinc-700 text-center md:text-left">Copy Bands</h3>
+            <h3 className="text-xl font-semibold mb-6 text-zinc-700 text-center">Copy Bands</h3>
             <div className="flex flex-col gap-4">
               {copyBands.map((band, index) => (
                 <div key={index} className="flex flex-col sm:flex-row sm:items-center justify-between p-4 bg-zinc-50 rounded-lg border border-zinc-100 gap-3">
-                  <span className="font-medium text-zinc-800">{band.name}</span>
+                  <span className="font-medium text-zinc-800">{band.name} コピーバンド</span>
                   <a
                     href={band.playlistUrl}
                     target="_blank"
@@ -155,13 +182,14 @@ export default function About() {
           {/* 右側：お好みの曲プレイリスト（1つだけiframeでプレイヤーとして残す） */}
           <div className="flex flex-col items-center">
             <h3 className="text-xl font-semibold mb-6 text-zinc-700">Favorite Tracks</h3>
-            <div className="w-full aspect-[4/5] max-h-[460px]">
+            <div className="w-full aspect-4/5 max-h-115">
               {/* ※YOUR_FAVORITE_PLAYLIST_ID を実際のSpotifyプレイリストIDに置き換えてください */}
               <iframe
+                title='My Favorite Playlist'
                 src="https://open.spotify.com/embed/playlist/YOUR_FAVORITE_PLAYLIST_ID?utm_source=generator"
                 width="100%"
                 height="100%"
-                style={{ borderRadius: '12px', border: '0' }}
+                className='rounded-2xl border-0'
                 allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                 loading="lazy"
               ></iframe>

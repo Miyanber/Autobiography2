@@ -5,6 +5,10 @@ import favicon from './favicon.ico';
 import { Hina_Mincho, Zen_Kaku_Gothic_New } from 'next/font/google';
 import Navbar from "@/components/NavBar";
 
+import { config } from '@fortawesome/fontawesome-svg-core'
+import '@fortawesome/fontawesome-svg-core/styles.css'
+config.autoAddCss = false
+
 const hinaMincho = Hina_Mincho({
   weight: '400',
   subsets: ['latin'],
@@ -49,7 +53,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja" className={`${hinaMincho.variable} ${zenKaku.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col bg-white text-black font-(--font-body) text-sm">
+      <body className="min-h-full flex flex-col bg-white text-black font-(--font-body) text-sm md:text-base">
         <header className="fixed z-50 flex items-center justify-between gap-4 px-8 py-4">
           <Navbar favicon={favicon} />
         </header>

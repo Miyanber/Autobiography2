@@ -37,7 +37,7 @@ export default function Navbar({ favicon }: NavProps) {
             <Link
               key={item.label}
               href={item.href}
-              className="text-zinc-600 hover:text-black transition-colors font-title"
+              className="text-zinc-600 hover:text-black transition-colors font-title tracking-wide"
             >
               {item.label}
             </Link>
