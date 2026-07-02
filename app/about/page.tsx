@@ -83,7 +83,7 @@ export default function About() {// タブの状態管理 ('active' か 'archive
                   <a href="https://github.com/Miyanber" target="_blank" rel="noopener noreferrer">
                     <FontAwesomeIcon icon={faSquareGithub} className="hover:text-[#181717]" />
                   </a>
-                  <a href="https://www.linkedin.com/in/%E8%81%96%E4%B9%9F-%E5%AE%AE%E5%B4%8E-90a4a2404/" target="_blank" rel="noopener noreferrer">
+                  <a href="https://www.linkedin.com/in/seiya-miyazaki-90a4a2404" target="_blank" rel="noopener noreferrer">
                     <FontAwesomeIcon icon={faLinkedin} className="hover:text-[#0A66C2]" />
                   </a>
                   {/* 必要に応じて X(Twitter) や Instagram もここに */}
