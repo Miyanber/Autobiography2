@@ -1,17 +1,26 @@
-// トップページのセクション
-import { ReactNode } from "react";
+import { cn } from "@/libs/utils";
+import { ComponentPropsWithoutRef, ReactNode } from "react";
 
-type SectionProps = {
+// sectionタグが本来持つ属性（idやaria-labelなど）をすべて継承
+type SectionProps = ComponentPropsWithoutRef<"section"> & {
   children: ReactNode;
-  bg?: string;        // 背景色を個別に変えたいとき用（オプショナル）
-  className?: string; // さらに個別の調整クラスを入れたいとき用（オプショナル）
-  px?: string;        // 内側のpx
+  bg?: string;
+  px?: string;
 };
 
-export function Section({ children, bg = "bg-white", className = "", px = "px-4 sm:px-12" }: SectionProps) {
+export function Section({
+  children,
+  bg = "bg-white",
+  px = "px-8 sm:px-12",
+  className,
+  ...props // id や他の属性をここにまとめる
+}: SectionProps) {
   return (
-    <section className={`w-full ${bg} py-12 ${className}`}>
-      <div className={`max-w-250 mx-auto ${px}`}>
+    <section 
+      className={cn("w-full py-12", bg, className)} 
+      {...props}
+    >
+      <div className={cn("max-w-250 mx-auto", px)}>
         {children}
       </div>
     </section>
