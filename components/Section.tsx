@@ -8,7 +8,7 @@ type SectionProps = {
   px?: string;        // 内側のpx
 };
 
-export function Section({ children, bg = "bg-white", className = "", px = "px-8 sm:px-12" }: SectionProps) {
+export function Section({ children, bg = "bg-white", className = "", px = "px-4 sm:px-12" }: SectionProps) {
   return (
     <section className={`w-full ${bg} py-12 ${className}`}>
       <div className={`max-w-250 mx-auto ${px}`}>

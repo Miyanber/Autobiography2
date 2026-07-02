@@ -83,6 +83,10 @@
   }
 }
 
+.markdown-body {
+  @apply text-sm! sm:text-base!;
+}
+
 .markdown-body :is(h1, h2) {
   /* ブラウザ標準、または親要素(.markdown-body)が指定する本来のフォントに「差し戻す」 */
   font-family: revert;

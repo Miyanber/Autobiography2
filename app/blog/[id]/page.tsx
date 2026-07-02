@@ -66,8 +66,8 @@ export default async function BlogRouterPage({ params }: Props) {
 
   return (
     <Section>
-      <h1 className="mt-8 mb-4">Blog</h1>
-      <div className="border border-paper-border bg-paper-bg p-8 md:p-12 shadow-[0_1px_2px_rgba(0,0,0,0.1),0_8px_20px_rgba(0,0,0,0.08)]">
+      <h1 className="mt-8 mb-4 text-center sm:text-left">Blog</h1>
+      <div className="border border-paper-border bg-paper-bg py-8 px-6 md:p-12 shadow-[0_1px_2px_rgba(0,0,0,0.1),0_8px_20px_rgba(0,0,0,0.08)]">
         <div className="mb-4 text-right text-lg font-title">
           <span className="">Date: </span>
           {published_at.toLocaleDateString()}
