@@ -15,15 +15,15 @@ type Band = {
 const copyBandsData: Band[] = [
   // --- Active / Upcoming (現在・これから) ---
   { name: "back number", status: "active", period: "" },
-  { name: "米津玄師", status: "active", period: "" },
-  { name: "優里", status: "active", period: "" },
+  { name: "米津玄師", playlistUrl: "https://open.spotify.com/intl-ja/track/0YWDyaVCYEehkFgHWw9M28?si=751fce9634374809", status: "active", period: "" },
+  { name: "優里", playlistUrl: "https://open.spotify.com/playlist/0SKZv6B1G1RvuhKdvxNHRA?si=8ef01bf87c414ae7", status: "active", period: "" },
   { name: "Radiohead", status: "active", period: "" },
-  { name: "スーパー登山部", status: "active", period: "" },
+  { name: "スーパー登山部", playlistUrl: "https://open.spotify.com/intl-ja/track/2KE6E5HdWNAeGKQhODfLu2?si=f138f52713e74a10", status: "active", period: "" },
   { name: "Enfants", status: "active", period: "" },
   { name: "MONO NO AWARE", status: "active", period: "" },
   // --- Archive (過去) ---
-  { name: "YOASOBI", status: "archive", period: "" },
-  { name: "ONE OK ROCK", status: "archive", period: "" },
+  { name: "YOASOBI", playlistUrl: "https://open.spotify.com/intl-ja/track/1VoTe7qVyqyMNLgZpQeugO?si=1a3eb776e6dc4c68", status: "archive", period: "" },
+  { name: "ONE OK ROCK", playlistUrl: "https://open.spotify.com/intl-ja/track/1yvwDM3RbG1JT0lLGXBCi3?si=136966da0f4f4395", status: "archive", period: "" },
 ];
 
 
@@ -72,7 +72,7 @@ export function CopyBands() {
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center gap-2 text-xs font-semibold border border-zinc-300 text-zinc-700 bg-white px-4 py-2 rounded-full hover:bg-zinc-800 hover:text-white hover:border-zinc-800 transition duration-300 text-center shadow-2xs"
                 >
-                  <FontAwesomeIcon icon={faSpotify} className="w-3 h-3 text-[#1DB954]" />
+                  <FontAwesomeIcon icon={faSpotify} className="w-5 h-5 text-[#1DB954]" />
                   Setlist
                 </a>
               )}
