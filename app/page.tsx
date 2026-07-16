@@ -1,3 +1,4 @@
+
 import Image from "next/image";
 
 import drumsImg from './img/drums.webp';
@@ -5,11 +6,12 @@ import oceanImg from './img/oceanarrow.webp';
 import trackImg from './img/trackandfield.webp';
 import vscodeImg from './img/vscode_image.webp';
 
-import works from '@/data/works.json';
+import { works } from '@/data/works';
 import Link from "next/link";
 import { getAllBlogPost } from "@/libs/microcms";
 import { Section } from "@/components/Section";
-import CustomButton from "@/components/Button";
+import { AboutSection } from "@/components/AboutSection";
+import { WorksSection } from "@/components/WorksSection";
 
 export default async function Home() {
   const blogPosts = await getAllBlogPost(4);
@@ -37,79 +39,9 @@ export default async function Home() {
         </div>
       </Section>
 
-      <Section bg="bg-[#e3f0f1]">
-        <h2 className="text-center">About Me</h2>
-        <p className="text-center my-12">
-          <strong>マルチスタック・クリエイター</strong>
-        </p>
-        <p className="text-center my-12">
-          「日常の不便をコードで解決する」をモットーに活動する学生エンジニアです。<br />
-          Webアプリケーションの設計・開発から、Minecraft MODの制作まで、プラットフォームを問わず「動くもの」を形にしています。
-        </p>
-        <p className="text-center my-8">
-          Skills: Python / Django / JavaScript / GitHub / Minecraft Modding
-        </p>
-        <div className="text-center">
-          <CustomButton href='/about'>
-            View Details
-          </CustomButton>
-        </div>
-      </Section>
+      <AboutSection></AboutSection>
 
-      <Section>
-        <h2 className="text-center">Works</h2>
-        <div className="mx-auto my-12 flex flex-col items-center gap-24">
-          {displayedWorks.map((work) => {
-            const cardContent = (
-              <>
-                <div className="relative overflow-hidden rounded-xl transition-transform duration-300 ease-in-out group-hover:scale-105 w-full md:w-[47%] aspect-video">
-                  <Image
-                    src={work.thumbnail ? work.thumbnail : '/main/img/NO_IMAGE.webp'}
-                    alt="サムネイル"
-                    fill
-                    className="object-contain"
-                  />
-                </div>
-                <div className="group-even:flex group-even:flex-col items-end md:w-[47%]">
-                  <div className="text-[1.4rem] text-[#1a1a1a] mb-4 font-title font-semibold">
-                    {work.title}
-                  </div>
-                  <div className="
-                    relative w-20 h-1 mb-6 overflow-hidden
-                    bg-linear-to-r from-[#007bff] to-[#00d4ff]
-                    after:content-[''] after:absolute after:top-0 after:block after:w-0 after:h-full after:bg-white
-                    group-odd:group-hover:after:animate-slide
-                    group-even:group-hover:after:animate-slide-reverse
-                  " />
-                  <div className="text-[#444] leading-8">
-                    {work.overview}
-                  </div>
-                </div>
-              </>
-            );
-
-            const Tag = work.link ? "a" : "div";
-            const linkProps = work.link
-              ? { href: work.link, target: "_blank", rel: "noopener noreferrer" }
-              : {};
-
-            return (
-              <Tag
-                key={work.id}
-                className="group flex flex-col gap-6 sm:flex-row sm:items-center sm:gap-16 sm:justify-between even:sm:flex-row-reverse w-full"
-                {...linkProps}
-              >
-                {cardContent}
-              </Tag>
-            ) 
-          })}
-        </div>
-        <div className="text-center">
-          <CustomButton href="/works">
-            View All
-          </CustomButton>
-        </div>
-      </Section>
+      <WorksSection displayedWorks={displayedWorks}></WorksSection>
 
       <Section bg="bg-[#e3f0f1]" px="px-4 sm:px-12">
         <h2 className="text-center">Blogs</h2>
