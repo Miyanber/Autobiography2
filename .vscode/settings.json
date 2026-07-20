@@ -4,5 +4,6 @@
         "hina",
         "MICROCMS"
     ],
-    "editor.indentSize": "tabSize"
+    "editor.indentSize": "tabSize",
+    "editor.tabSize": 2
 }

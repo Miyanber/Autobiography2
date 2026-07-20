@@ -1,17 +1,17 @@
 "use client"
 
 import Image from "next/image";
-import { Section } from "./Section";
+import { Section } from "../Section";
 import { Work } from "@/data/works";
-import CustomButton from "./Button";
+import CustomButton from "../Button";
 import { motion } from "framer-motion";
 import { fadeIn } from "@/libs/motion";
 
-type WorksSectionProps = {
+type WorkSectionProps = {
   displayedWorks: Work[];
 };
 
-export function WorksSection({ displayedWorks }: WorksSectionProps) {
+export function WorksSection({ displayedWorks }: WorkSectionProps) {
   return (
     <Section>
       <motion.div
@@ -69,11 +69,16 @@ export function WorksSection({ displayedWorks }: WorksSectionProps) {
           )
         })}
       </div>
-      <div className="text-center">
-        <CustomButton href="/works">
-          View All
-        </CustomButton>
-      </div>
+      <motion.div
+        {...fadeIn.up}
+      >
+        <div className="text-center">
+          <CustomButton href="/works">
+            View All
+          </CustomButton>
+        </div>
+      </motion.div>
+
     </Section>
   )
 }

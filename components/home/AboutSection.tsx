@@ -1,8 +1,8 @@
 "use client"
 
 import { motion } from "framer-motion";
-import { Section } from "./Section";
-import CustomButton from "./Button";
+import { Section } from "../Section";
+import CustomButton from "../Button";
 import { fadeIn } from "@/libs/motion";
 
 export function AboutSection() {

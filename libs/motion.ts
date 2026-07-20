@@ -1,6 +1,6 @@
-import { HTMLMotionProps } from "framer-motion";
+import { MotionProps } from "framer-motion";
 
-export const fadeIn: { [key: string]: HTMLMotionProps<'div'> } = {
+export const fadeIn: { [key: string]: MotionProps } = {
   // 基本の「下からスッと出てくる」設定
   up: {
     // 1. 初期状態（画面外にあるとき）: 透明で、ちょっと下に下がっている

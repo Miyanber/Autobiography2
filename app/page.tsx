@@ -10,8 +10,9 @@ import { works } from '@/data/works';
 import Link from "next/link";
 import { getAllBlogPost } from "@/libs/microcms";
 import { Section } from "@/components/Section";
-import { AboutSection } from "@/components/AboutSection";
-import { WorksSection } from "@/components/WorksSection";
+import { AboutSection } from "@/components/home/AboutSection";
+import { WorksSection } from "@/components/home/WorkSection";
+import { BlogSection } from "@/components/home/BlogSection";
 
 export default async function Home() {
   const blogPosts = await getAllBlogPost(4);
@@ -43,40 +44,7 @@ export default async function Home() {
 
       <WorksSection displayedWorks={displayedWorks}></WorksSection>
 
-      <Section bg="bg-[#e3f0f1]" px="px-4 sm:px-12">
-        <h2 className="text-center">Blogs</h2>
-        <div className="mx-auto my-12 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-items-center">
-          {blogPosts.map((blogPost) => (
-            <Link
-              key={blogPost.id}
-              href={`/blog/${blogPost.id}`}
-              className="group p-4 flex max-w-44 flex-col items-center cursor-pointer hover:translate-x-[-0.2rem] hover:translate-y-[-0.2rem] hover:shadow-[0.3rem_0.3rem_0.4rem_#bebebe] transition duration-300"
-            >
-              <div className="relative h-36 w-36 overflow-hidden transition-transform duration-300 ease-in-out group-hover:scale-105">
-                <Image
-                  src={blogPost.eyecatch ? blogPost.eyecatch.url : '/main/img/NO_IMAGE.webp'}
-                  alt="サムネイル"
-                  fill
-                  className="object-contain"
-                />
-                <div className="absolute inset-0 bg-white opacity-0 transition-opacity duration-300 ease-in-out group-hover:opacity-15" />
-              </div>
-              <div className="text-center w-full">
-                <div className="leading-tight h-10 my-4 line-clamp-2">
-                  {blogPost.title}
-                </div>
-                <div className="mt-3 text-[#5a5a5a]">
-                  {new Date(blogPost.publishedAt).toLocaleDateString('ja-JP', {
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric',
-                  })}
-                </div>
-              </div>
-            </Link>
-          ))}
-        </div>
-      </Section>
+      <BlogSection blogPosts={blogPosts}></BlogSection>
 
       <section id="contact" className="py-20 px-6 md:px-12">
         <h2 className="text-center">Contact</h2>
