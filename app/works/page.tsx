@@ -1,5 +1,5 @@
 import { Section } from '@/components/Section';
-import works from '@/data/works.json';
+import { works } from '@/data/works';
 import { Metadata } from 'next';
 import Image from 'next/image';
 
