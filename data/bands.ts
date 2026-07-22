@@ -25,11 +25,11 @@ export const copyBandsData: Band[] = [
     status: "archive",
     period: ""
   },
-  
+
   // --- Active / Upcoming (現在・これから) ---
   {
     name: "米津玄師",
-    playlistUrl: "https://open.spotify.com/intl-ja/track/0YWDyaVCYEehkFgHWw9M28?si=751fce9634374809",
+    playlistUrl: "https://open.spotify.com/playlist/0Vo2N0wjByjjUZVLY0xCF8?si=5Uj9-aXHRz6TIhznsKk53Q&utm_source=copy-link&pi=zjE0rZytS-KDC",
     status: "active",
     period: ""
   },
@@ -41,22 +41,43 @@ export const copyBandsData: Band[] = [
   },
   {
     name: "Radiohead",
+    playlistUrl: "https://open.spotify.com/playlist/3kzrjVsZygigvPgF21kCCz?si=b13fa9e48314488b&pt=f4f5f512ade02d8ab6cd511c79ea9cf4",
     status: "active",
     period: ""
   },
   {
     name: "スーパー登山部",
     playlistUrl: "https://open.spotify.com/intl-ja/track/2KE6E5HdWNAeGKQhODfLu2?si=f138f52713e74a10",
-    status: "active",
+    status: "archive",
     period: ""
   },
   {
     name: "Enfants",
+    playlistUrl: "https://open.spotify.com/playlist/179IsUkNm311bBJZMgJSx7?si=a07606f68c224052&pt=3966969709944f8a2c1d169c9b712c5b",
+    status: "active",
+    period: ""
+  },
+  {
+    name: "Weezer",
+    playlistUrl: "https://open.spotify.com/playlist/5eMh6NPTfdkkLl82SfTrNO?si=1e912147a90f4664",
+    status: "active",
+    period: ""
+  },
+  {
+    name: "Nulbarich",
+    playlistUrl: "https://open.spotify.com/playlist/12ri3IMWT3m9oNPB6I3Epa?si=f4ca8c104f7d40ed",
+    status: "active",
+    period: ""
+  },
+  {
+    name: "集団行動",
+    playlistUrl: "https://open.spotify.com/playlist/2RDO2kZwSH3I5kbtVf7V7v?si=d39fd825301c4251",
     status: "active",
     period: ""
   },
   {
     name: "MONO NO AWARE",
+    playlistUrl: "https://open.spotify.com/playlist/2QW0qX6dvY69DZhmiIUVNJ?si=e69ef7a4d63d4c48",
     status: "active",
     period: ""
   },
