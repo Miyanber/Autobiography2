@@ -46,6 +46,16 @@ export const copyBandsData: Band[] = [
     period: ""
   },
   {
+    name: "Oasis",
+    status: "active",
+    period: ""
+  },
+  {
+    name: "ナンバーガール",
+    status: "active",
+    period: ""
+  },
+  {
     name: "Enfants",
     playlistUrl: "https://open.spotify.com/playlist/179IsUkNm311bBJZMgJSx7?si=a07606f68c224052&pt=3966969709944f8a2c1d169c9b712c5b",
     status: "active",
