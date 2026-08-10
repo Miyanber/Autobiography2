@@ -28,12 +28,6 @@ export const copyBandsData: Band[] = [
 
   // --- Active / Upcoming (現在・これから) ---
   {
-    name: "米津玄師",
-    playlistUrl: "https://open.spotify.com/playlist/0Vo2N0wjByjjUZVLY0xCF8?si=5Uj9-aXHRz6TIhznsKk53Q&utm_source=copy-link&pi=zjE0rZytS-KDC",
-    status: "active",
-    period: ""
-  },
-  {
     name: "優里",
     playlistUrl: "https://open.spotify.com/playlist/0SKZv6B1G1RvuhKdvxNHRA?si=8ef01bf87c414ae7",
     status: "active",
@@ -58,6 +52,12 @@ export const copyBandsData: Band[] = [
     period: ""
   },
   {
+    name: "米津玄師",
+    playlistUrl: "https://open.spotify.com/playlist/0Vo2N0wjByjjUZVLY0xCF8?si=5Uj9-aXHRz6TIhznsKk53Q&utm_source=copy-link&pi=zjE0rZytS-KDC",
+    status: "active",
+    period: ""
+  },
+  {
     name: "Weezer",
     playlistUrl: "https://open.spotify.com/playlist/5eMh6NPTfdkkLl82SfTrNO?si=1e912147a90f4664",
     status: "active",
@@ -78,6 +78,11 @@ export const copyBandsData: Band[] = [
   {
     name: "MONO NO AWARE",
     playlistUrl: "https://open.spotify.com/playlist/2QW0qX6dvY69DZhmiIUVNJ?si=e69ef7a4d63d4c48",
+    status: "active",
+    period: ""
+  },
+  {
+    name: "超☆社会的サンダル",
     status: "active",
     period: ""
   },
