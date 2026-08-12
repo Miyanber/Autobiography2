@@ -37,22 +37,21 @@ export const works: Work[] = [
     order: 2,
     show_on_top: false,
   },
-  {
-    id: 4,
-    thumbnail: "",
-    title: "Real Train Mod 1.21.10 対応",
-    overview:
-      "Minecraft の Real Train Mod の 1.21.10 NeoForge 対応版。現在制作中。",
-    order: 5,
-    show_on_top: false,
-  },
+  // {
+  //   id: 4,
+  //   thumbnail: "",
+  //   title: "Real Train Mod 1.21.10 対応",
+  //   overview:
+  //     "Minecraft の Real Train Mod の 1.21.10 NeoForge 対応版。現在制作中。",
+  //   order: 5,
+  //   show_on_top: false,
+  // },
   {
     id: 5,
     thumbnail: "/main/img/rakunavi_logo512.webp",
     title: "洛南高等学校・附属中学校 文化祭公式ホームページ「らくなび」",
     overview:
       "洛南高等学校・附属中学校文化祭史上初の公式ホームページ。初年度から約87,600PVを獲得。",
-    link: "https://rakunavi2025.work/",
     order: 4,
     show_on_top: true,
   },
