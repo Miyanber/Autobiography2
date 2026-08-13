@@ -62,6 +62,12 @@ export const copyBandsData: Band[] = [
     period: ""
   },
   {
+    name: "Mrs. Green Apple",
+    playlistUrl: "https://open.spotify.com/playlist/3QOTtUipAAtiGwaCmdgm3p?si=0b998b797cab485f",
+    status: "active",
+    period: ""
+  },
+  {
     name: "米津玄師",
     playlistUrl: "https://open.spotify.com/playlist/0Vo2N0wjByjjUZVLY0xCF8?si=5Uj9-aXHRz6TIhznsKk53Q&utm_source=copy-link&pi=zjE0rZytS-KDC",
     status: "active",
