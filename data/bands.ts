@@ -103,7 +103,7 @@ export const copyBandsData: Band[] = [
   },
   {
     name: "超☆社会的サンダル",
-    status: "active",
+    status: "archive",
     period: "",
   },
   {

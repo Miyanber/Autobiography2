@@ -4,7 +4,7 @@ import { Metadata } from 'next';
 import myrIcon from '@/app/img/icon2.webp';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSquareGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import { faSquareGithub, faLinkedin, faXTwitter } from '@fortawesome/free-brands-svg-icons';
 
 import Link from "next/link";
 import Image from 'next/image';
@@ -80,6 +80,9 @@ export default function About() {// タブの状態管理 ('active' か 'archive
                 
                 <dt className="font-semibold text-zinc-500">SNS</dt>
                 <dd className="flex gap-4 text-2xl text-gray-600">
+                  <a href="https://x.com/myr4920" target="_blank" rel="noopener noreferrer">
+                    <FontAwesomeIcon icon={faXTwitter} className="hover:text-[#181717]" />
+                  </a>
                   <a href="https://github.com/Miyanber" target="_blank" rel="noopener noreferrer">
                     <FontAwesomeIcon icon={faSquareGithub} className="hover:text-[#181717]" />
                   </a>
@@ -184,7 +187,7 @@ export default function About() {// タブの状態管理 ('active' か 'archive
             <h3 className="text-xl font-semibold mb-6 text-zinc-800 border-b-2 border-[#e3f0f1] pb-2 font-title">Drum Gear</h3>
             <dl className="grid grid-cols-3 gap-y-4 text-sm text-[#444] leading-relaxed">
               <dt className="font-semibold text-zinc-600">Sticks</dt>
-              <dd className="col-span-2">Pearl 110HC</dd>
+              <dd className="col-span-2">Vic Firth A</dd>
               
               <dt className="font-semibold text-zinc-600">Pedal</dt>
               <dd className="col-span-2">Pearl Demonator P-932</dd>
