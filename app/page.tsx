@@ -7,7 +7,6 @@ import trackImg from './img/trackandfield.webp';
 import vscodeImg from './img/vscode_image.webp';
 
 import { works } from '@/data/works';
-import Link from "next/link";
 import { getAllBlogPost } from "@/libs/microcms";
 import { Section } from "@/components/Section";
 import { AboutSection } from "@/components/home/AboutSection";

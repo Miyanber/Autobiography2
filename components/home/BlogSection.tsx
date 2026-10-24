@@ -7,8 +7,7 @@ import { BlogPost } from '@/types/blog';
 import { fadeIn } from '@/libs/motion';
 import { Section } from '../Section';
 
-const MotionLink = motion(Link);
-const MotionButton = motion.button;
+const MotionLink = motion.create(Link);
 
 type BlogSectionProps = {
   blogPosts: BlogPost[]
@@ -21,14 +20,11 @@ export function BlogSection({ blogPosts }: BlogSectionProps) {
       <motion.div {...fadeIn.up}>
         <h2 className="text-center">Blogs</h2>
       </motion.div>
-      
+
       {/* 2. グリッド自体を motion.div にするのではなく、
              普通の div にして中のカード「それぞれ」を motion(Link) で回す */}
       <div className="mx-auto my-12 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-items-center">
         {blogPosts.map((blogPost) => {
-          // LinkをFramer Motion化
-          const MotionLink = motion(Link);
-
           return (
             <MotionLink
               key={blogPost.id}

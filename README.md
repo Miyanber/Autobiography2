@@ -1,34 +1,50 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Autobiography2
 
-## Getting Started
+個人サイト（自己紹介・ブログ・制作物）。Next.js (App Router) + microCMS で構築しています。
 
-First, run the development server:
+## 技術スタック
+
+- [Next.js](https://nextjs.org) / React 19 / TypeScript
+- Tailwind CSS v4
+- [microCMS](https://microcms.io)（ブログ記事の取得）
+- react-markdown (+ KaTeX, remark/rehype プラグイン)
+- パッケージマネージャ: pnpm
+
+## セットアップ
 
 ```bash
+pnpm install
+cp .env.example .env.local   # 値を設定する
 pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+[http://localhost:3000](http://localhost:3000) を開いて確認できます。
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 環境変数
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| 変数名 | 説明 |
+| --- | --- |
+| `MICROCMS_SERVICE_DOMAIN` | microCMS のサービスドメイン |
+| `MICROCMS_API_KEY` | microCMS の API キー |
 
-## Learn More
+## スクリプト
 
-To learn more about Next.js, take a look at the following resources:
+| コマンド | 内容 |
+| --- | --- |
+| `pnpm dev` | 開発サーバー起動 |
+| `pnpm build` | 本番ビルド |
+| `pnpm start` | 本番サーバー起動 |
+| `pnpm lint` | ESLint 実行 |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 画像の WebP 一括変換（Windows / PowerShell）
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```powershell
+# インストール
+scoop install libwebp
 
-## Deploy on Vercel
+# .webp の生成
+Get-ChildItem *.png | ForEach-Object { cwebp -q 80 $_.Name -o "$($_.BaseName).webp" }
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-
-
-# Autobiography2
-
+# 生成と同時に元ファイル(.png)を削除
+Get-ChildItem *.png | ForEach-Object { cwebp -q 80 $_.Name -o "$($_.BaseName).webp"; Remove-Item $_.Name }
+```
