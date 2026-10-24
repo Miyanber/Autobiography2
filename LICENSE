@@ -1,0 +1,41 @@
+MIT License
+
+Copyright (c) 2026 Miyanber
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+----------------------------------------------------------------------------
+
+Exceptions / 例外
+
+The MIT License above applies to the source code only (TypeScript/TSX, CSS,
+configuration files, etc.).
+
+The following content is NOT covered by the MIT License. Copyright is reserved
+by the author (or the respective rights holders) and it may not be reused
+without permission:
+
+- articles/   (blog articles)
+- data/       (personal data such as works and band lists)
+- app/img/ and public/ (images, screenshots, logos, photographs)
+
+上記の MIT ライセンスはソースコードにのみ適用されます。
+articles/、data/、画像類（app/img/、public/）は著作者（または各権利者）に
+帰属し、無断での転載・再利用はできません。
+各種ロゴ・商標は、それぞれの権利者に帰属します。

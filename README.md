@@ -48,3 +48,8 @@ Get-ChildItem *.png | ForEach-Object { cwebp -q 80 $_.Name -o "$($_.BaseName).we
 # 生成と同時に元ファイル(.png)を削除
 Get-ChildItem *.png | ForEach-Object { cwebp -q 80 $_.Name -o "$($_.BaseName).webp"; Remove-Item $_.Name }
 ```
+
+## ライセンス
+
+ソースコードは [MIT License](./LICENSE) です。
+ただし `articles/`、`data/`、画像類（`app/img/`、`public/`）は MIT の対象外で、著作権は著作者（または各権利者）に帰属します。無断での転載・再利用はご遠慮ください。
