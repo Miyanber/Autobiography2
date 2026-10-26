@@ -16,15 +16,15 @@ export function AboutSection() {
       <motion.div
         {...fadeIn.up}
       >
-        <p className="text-center my-12">
-          <strong>マルチスタック・クリエイター</strong>
+        <p className="text-center my-12 text-lg">
+          <strong>Student Engineer | Web &amp; Tools</strong>
         </p>
         <p className="text-center my-12 leading-8">
           「日常の不便をコードで解決する」をモットーに活動する学生エンジニアです。<br />
-          Webアプリケーションの設計・開発から、Minecraft MODの制作まで、プラットフォームを問わず「動くもの」を形にしています。
+          Webアプリケーションの設計・開発から、日常を便利にするツール制作まで、プラットフォームを問わず「動くもの」を形にしています。
         </p>
         <p className="text-center my-8">
-          Skills: Python / Django / JavaScript / GitHub / Minecraft Modding
+          Skills: Python / Django / TypeScript / Next.js / GitHub
         </p>
       </motion.div>
       <motion.div
