@@ -193,7 +193,7 @@ export default function About() {// タブの状態管理 ('active' か 'archive
               <dt className="font-semibold text-zinc-600">Cymbal Attachment</dt>
               <dd className="col-span-2">Pearl CH-70</dd>
 
-              <dt className="font-semibold text-zinc-600">Splash Cymbal</dt>
+              <dt className="font-semibold text-zinc-600">Cymbals</dt>
               <dd className="col-span-2">PLAYTECH PCT8SP Splash 8"</dd>
 
               <dt className="font-semibold text-zinc-600">Pedal Beater</dt>
