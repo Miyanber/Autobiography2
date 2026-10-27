@@ -194,7 +194,7 @@ export default function About() {// タブの状態管理 ('active' か 'archive
               <dd className="col-span-2">Pearl CH-70</dd>
 
               <dt className="font-semibold text-zinc-600">Cymbals</dt>
-              <dd className="col-span-2">PLAYTECH PCT8SP Splash 8"</dd>
+              <dd className="col-span-2">PLAYTECH PCT8SP Splash 8&quot;</dd>
 
               <dt className="font-semibold text-zinc-600">Pedal Beater</dt>
               <dd className="col-span-2">Pearl B-250QB</dd>

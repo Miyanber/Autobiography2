@@ -48,7 +48,7 @@ export const works: Work[] = [
   // },
   {
     id: 5,
-    thumbnail: "/main/img/rakunavi_logo512.webp",
+    thumbnail: "/main/img/RakuNavi-TopPage.webp",
     title: "洛南高等学校・附属中学校 文化祭公式ホームページ「らくなび」",
     overview:
       "洛南高等学校・附属中学校文化祭史上初の公式ホームページ。初年度から約87,600PVを獲得。",

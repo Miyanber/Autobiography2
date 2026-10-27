@@ -19,19 +19,20 @@ export function WorksSection({ displayedWorks }: WorkSectionProps) {
       >
         <h2 className="text-center">Works</h2>
       </motion.div>
-      <div className="mx-auto my-12 flex flex-col items-center gap-24">
+      <div className="mx-auto my-12 flex flex-col items-center gap-24 w-full">
         {displayedWorks.map((work) => {
           const cardContent = (
             <>
-              <div className="relative overflow-hidden rounded-xl transition-transform duration-300 ease-in-out group-hover:scale-105 w-full md:w-[47%] aspect-video">
+              <div className="relative overflow-hidden rounded-xl bg-slate-100 transition-transform duration-300 ease-in-out group-hover:scale-105 w-full md:w-[47%] shrink-0 aspect-video">
                 <Image
                   src={work.thumbnail ? work.thumbnail : '/main/img/NO_IMAGE.webp'}
-                  alt="サムネイル"
+                  alt={work.title}
                   fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
                   className="object-contain"
                 />
               </div>
-              <div className="group-even:flex group-even:flex-col items-end md:w-[47%]">
+              <div className="w-full md:w-[47%] flex flex-col group-even:md:items-end">
                 <div className="text-[1.4rem] text-[#1a1a1a] mb-4 font-title font-semibold">
                   {work.title}
                 </div>
@@ -57,10 +58,11 @@ export function WorksSection({ displayedWorks }: WorkSectionProps) {
           return (
             <motion.div
               key={work.id}
+              className="w-full"
               {...fadeIn.up}
             >
               <Tag
-                className="group flex flex-col gap-6 sm:flex-row sm:items-center sm:gap-16 sm:justify-between even:sm:flex-row-reverse w-full"
+                className="group flex flex-col gap-6 md:flex-row md:items-center md:gap-16 md:justify-between even:md:flex-row-reverse w-full"
                 {...linkProps}
               >
                 {cardContent}
