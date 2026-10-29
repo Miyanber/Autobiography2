@@ -5,6 +5,8 @@ export interface Work {
   overview: string;
   createdAt: string; // YYYY-MM-DD
   show_on_top: boolean;
+  appUrl?: string;
+  githubUrl?: string;
   link?: string;
 }
 
@@ -14,7 +16,7 @@ export const works: Work[] = [
     thumbnail: "/main/img/oceanarrow.webp",
     title: "MYR-Trains",
     overview: "Minecraft の Real Train Mod 用モデルパック",
-    link: "https://rtmaddon-search.com/myr-train/",
+    appUrl: "https://rtmaddon-search.com/myr-train/",
     createdAt: "2022-06-05",
     show_on_top: false,
   },
@@ -24,7 +26,7 @@ export const works: Work[] = [
     title: "StudyTimer",
     overview:
       "勉強と休憩のサイクルを最適化するWebタイマー。Web Workerによる高精度なバックグラウンド計時や画面スリープ防止、カスタムアラーム音に対応したPWAアプリ。",
-    link: "https://studytimer.miyanber.com",
+    appUrl: "https://studytimer.miyanber.com",
     createdAt: "2024-01-15",
     show_on_top: false,
   },
@@ -34,7 +36,8 @@ export const works: Work[] = [
     title: "洛南高等学校附属中学校 鉄道研究部 公式HP (2023)",
     overview:
       "洛南高等学校附属中学校鉄道研究部の公式ホームページ。2023年度にリニューアル制作を担当。",
-    link: "https://rakunanrail.web.fc2.com/index.html",
+    appUrl: "https://rakunanrail.web.fc2.com/index.html",
+    githubUrl: "https://github.com/Miyanber/rakunan_rail",
     createdAt: "2023-10-05",
     show_on_top: false,
   },
@@ -44,7 +47,8 @@ export const works: Work[] = [
     title: "洛南高等学校・附属中学校 文化祭公式ホームページ「らくなび」",
     overview:
       "学内文化祭・体育祭向けナビゲーションWebアプリ。校内マップ、展示ごとの混雑度やタイムテーブル表示、動的フォーム等を実装し、初年度から約87,600PVを獲得。",
-    link: "https://github.com/Miyanber/rakunavi-portfolio",
+    githubUrl: "https://github.com/Miyanber/rakunavi-portfolio",
+    appUrl: "https://rakunavi2026.org/",
     createdAt: "2025-10-04",
     show_on_top: true,
   },
@@ -54,7 +58,7 @@ export const works: Work[] = [
     title: "Classroom Archiver",
     overview:
       "Google Classroom™ のお知らせ・課題・資料をオフライン閲覧可能なHTML形式で一括保存するPythonツール。添付ファイルのローカル保存やGoogle Driveへのコピーに対応。",
-    link: "https://github.com/Miyanber/ClassroomArchiver",
+    githubUrl: "https://github.com/Miyanber/ClassroomArchiver",
     createdAt: "2026-03-31",
     show_on_top: true,
   },
@@ -64,7 +68,8 @@ export const works: Work[] = [
     title: "Kyoto Station Mod (Minecraft Forge)",
     overview:
       "JR京都駅をモチーフにした壁材・床タイル・天井ブラインドなどの建築資材ブロックを追加する Minecraft Forge 向け Mod。",
-    link: "https://www.curseforge.com/minecraft/mc-mods/kyoto-station-mod",
+    appUrl: "https://www.curseforge.com/minecraft/mc-mods/kyoto-station-mod",
+    githubUrl: "https://github.com/Miyanber/KyotoStationMod",
     createdAt: "2021-09-07",
     show_on_top: true,
   },
@@ -74,7 +79,7 @@ export const works: Work[] = [
     title: "Google Classroom Notification",
     overview:
       "Google Classroom™ の更新内容（お知らせ・課題・資料）を、毎日指定時刻にまとめてメール通知する Google Apps Script 製 Web アプリケーション。",
-    link: "https://github.com/Miyanber/GoogleClassroomNotification",
+    githubUrl: "https://github.com/Miyanber/GoogleClassroomNotification",
     createdAt: "2025-04-01",
     show_on_top: false,
   },
@@ -84,7 +89,7 @@ export const works: Work[] = [
     title: "JRW Timetable Generator",
     overview:
       "JRおでかけネットのWeb時刻表から、かつて駅で配布されていたポケット時刻表風のシートを Excel 上に自動生成する Office アドイン。",
-    link: "https://github.com/Miyanber/JRWTimeTableGenerator",
+    githubUrl: "https://github.com/Miyanber/JRWTimeTableGenerator",
     createdAt: "2022-09-01",
     show_on_top: false,
   },
@@ -94,7 +99,7 @@ export const works: Work[] = [
     title: "Scripts Collection",
     overview:
       "日常のタスク自動化、PDF整理、文字コード変換、Google連携、Web自動操作などをまとめた実用スクリプト集。",
-    link: "https://github.com/Miyanber/Scripts",
+    githubUrl: "https://github.com/Miyanber/Scripts",
     createdAt: "2026-03-30",
     show_on_top: false,
   },
@@ -104,7 +109,8 @@ export const works: Work[] = [
     title: "GDG Live Checkin",
     overview:
       "GDGやconnpassイベントの受付を高速化するWebアプリ。カメラによるQRコード即時スキャン、効果音判定、画面スリープ防止、GDG Accounts認証に対応。",
-    link: "https://github.com/gdg-jp/gdgjp/tree/main/apps/live-checkin",
+    githubUrl: "https://github.com/gdg-jp/gdgjp/tree/main/apps/live-checkin",
+    appUrl: "https://checkin.gdgs.jp",
     createdAt: "2026-10-18",
     show_on_top: true,
   },

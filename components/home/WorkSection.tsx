@@ -50,9 +50,10 @@ export function WorksSection({ displayedWorks }: WorkSectionProps) {
             </>
           );
 
-          const Tag = work.link ? "a" : "div";
-          const linkProps = work.link
-            ? { href: work.link, target: "_blank", rel: "noopener noreferrer" }
+          const targetUrl = work.appUrl || work.githubUrl || work.link;
+          const Tag = targetUrl ? "a" : "div";
+          const linkProps = targetUrl
+            ? { href: targetUrl, target: "_blank", rel: "noopener noreferrer" }
             : {};
 
           return (
