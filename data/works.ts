@@ -114,4 +114,15 @@ export const works: Work[] = [
     createdAt: "2026-10-18",
     show_on_top: true,
   },
+  {
+    id: 12,
+    thumbnail: "/main/img/gdgoc-kobe-univ.webp",
+    title: "GDGoC Kobe University 公式Webサイト",
+    overview:
+      "GDGoC Kobe University の公式Webサイト。コミュニティ紹介やメンバー一覧、connpass と連携した最新イベント情報を提供。",
+    githubUrl: "https://github.com/GDGoC-Kobe-Univ/gdgoc-kobe-website",
+    appUrl: "https://gdgoc-kobe.org",
+    createdAt: "2026-06-30",
+    show_on_top: false,
+  },
 ];
