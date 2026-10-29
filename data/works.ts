@@ -22,7 +22,8 @@ export const works: Work[] = [
     id: 2,
     thumbnail: "/main/img/timer.webp",
     title: "StudyTimer",
-    overview: "自分用の勉強タイマー。勉強・休憩のサイクルを実践できる。",
+    overview:
+      "勉強と休憩のサイクルを最適化するWebタイマー。Web Workerによる高精度なバックグラウンド計時や画面スリープ防止、カスタムアラーム音に対応したPWAアプリ。",
     link: "https://studytimer.miyanber.com",
     order: 2,
     show_on_top: false,
@@ -32,7 +33,7 @@ export const works: Work[] = [
     thumbnail: "/main/img/スクリーンショット_2026-03-04_142709.webp",
     title: "洛南高等学校附属中学校 鉄道研究部 公式HP (2023)",
     overview:
-      "2023年度に、洛南高等学校附属中学校鉄道研究部の公式HPをリニューアルしました。",
+      "洛南高等学校附属中学校鉄道研究部の公式ホームページ。2023年度にリニューアル制作を担当。",
     link: "https://rakunanrail.web.fc2.com/index.html",
     order: 2,
     show_on_top: false,
@@ -51,7 +52,8 @@ export const works: Work[] = [
     thumbnail: "/main/img/RakuNavi-TopPage.webp",
     title: "洛南高等学校・附属中学校 文化祭公式ホームページ「らくなび」",
     overview:
-      "洛南高等学校・附属中学校文化祭史上初の公式ホームページ。初年度から約87,600PVを獲得。",
+      "学内文化祭・体育祭向けリアルタイムナビゲーションWebアプリ。校内マップ、WebSocketによる混雑度配信、動的フォーム等を実装し、初年度から約87,600PVを獲得。",
+    link: "https://github.com/Miyanber/rakunavi-portfolio",
     order: 4,
     show_on_top: true,
   },
@@ -59,8 +61,9 @@ export const works: Work[] = [
     id: 6,
     thumbnail: "/main/img/ClassroomArchiver.webp",
     title: "Classroom Archiver",
-    overview: "Google Classroom™ のクラスをHTML形式でアーカイブします。",
-    link: "https://github.com/Miyanber/ClassroomArchiver.git",
+    overview:
+      "Google Classroom™ のお知らせ・課題・資料をオフライン閲覧可能なHTML形式で一括保存するPythonツール。添付ファイルのローカル保存やGoogle Driveへのコピーに対応。",
+    link: "https://github.com/Miyanber/ClassroomArchiver",
     order: 6,
     show_on_top: true,
   },
@@ -69,9 +72,39 @@ export const works: Work[] = [
     thumbnail: "/main/img/logo2_1.webp",
     title: "Kyoto Station Mod",
     overview:
-      "Minecraft の建築系 MOD。JR京都駅にありそうなブロックを追加する。",
+      "JR京都駅をモチーフにした壁材・床タイル・天井ブラインドなどの建築資材ブロックを追加する Minecraft (Forge) 向け Mod。",
     link: "https://www.curseforge.com/minecraft/mc-mods/kyoto-station-mod",
     order: 2,
     show_on_top: true,
+  },
+  {
+    id: 8,
+    thumbnail: "",
+    title: "Google Classroom Notification",
+    overview:
+      "Google Classroom™ の更新内容（お知らせ・課題・資料）を、毎日指定時刻にまとめてメール通知する Google Apps Script 製 Web アプリケーション。",
+    link: "https://github.com/Miyanber/GoogleClassroomNotification",
+    order: 7,
+    show_on_top: false,
+  },
+  {
+    id: 9,
+    thumbnail: "",
+    title: "JRWTimeTableGenerator",
+    overview:
+      "JRおでかけネットのWeb時刻表から、かつて駅で配布されていたポケット時刻表風のシートを Excel 上に自動生成する Office アドイン。",
+    link: "https://github.com/Miyanber/JRWTimeTableGenerator",
+    order: 8,
+    show_on_top: false,
+  },
+  {
+    id: 10,
+    thumbnail: "",
+    title: "Scripts Collection",
+    overview:
+      "日常のタスク自動化、PDF整理、文字コード変換、Google連携、Web自動操作などをまとめた実用スクリプト集。",
+    link: "https://github.com/Miyanber/Scripts",
+    order: 9,
+    show_on_top: false,
   },
 ];
