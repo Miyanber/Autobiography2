@@ -16,7 +16,7 @@ export default function Navbar({ favicon }: NavProps) {
   const navItems = [
     { label: "About", href: "/about" }, // スクロールさせる場合はid、別ページなら/about
     { label: "Works", href: "/works" },
-    { label: "Blogs", href: "/blog" },
+    { label: "Blogs", href: "/blogs" },
     { label: "Contact", href: "/#contact" },
   ];
 
