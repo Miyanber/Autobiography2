@@ -107,4 +107,14 @@ export const works: Work[] = [
     order: 9,
     show_on_top: false,
   },
+  {
+    id: 11,
+    thumbnail: "/main/img/live-checkin.webp",
+    title: "GDG Live Checkin",
+    overview:
+      "GDGやconnpassイベントの受付を高速化するWebアプリ。カメラによるQRコード即時スキャン、効果音判定、画面スリープ防止、GDG Accounts認証に対応。",
+    link: "https://github.com/gdg-jp/gdgjp/tree/main/apps/live-checkin",
+    order: 10,
+    show_on_top: true,
+  },
 ];
