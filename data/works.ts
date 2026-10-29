@@ -52,7 +52,7 @@ export const works: Work[] = [
     thumbnail: "/main/img/RakuNavi-TopPage.webp",
     title: "洛南高等学校・附属中学校 文化祭公式ホームページ「らくなび」",
     overview:
-      "学内文化祭・体育祭向けリアルタイムナビゲーションWebアプリ。校内マップ、WebSocketによる混雑度配信、動的フォーム等を実装し、初年度から約87,600PVを獲得。",
+      "学内文化祭・体育祭向けナビゲーションWebアプリ。校内マップ、展示ごとの混雑度やタイムテーブル表示、動的フォーム等を実装し、初年度から約87,600PVを獲得。",
     link: "https://github.com/Miyanber/rakunavi-portfolio",
     order: 4,
     show_on_top: true,
