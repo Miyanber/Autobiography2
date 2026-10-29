@@ -60,7 +60,7 @@ export const works: Work[] = [
       "Google Classroom™ のお知らせ・課題・資料をオフライン閲覧可能なHTML形式で一括保存するPythonツール。添付ファイルのローカル保存やGoogle Driveへのコピーに対応。",
     githubUrl: "https://github.com/Miyanber/ClassroomArchiver",
     createdAt: "2026-03-31",
-    show_on_top: true,
+    show_on_top: false,
   },
   {
     id: 7,

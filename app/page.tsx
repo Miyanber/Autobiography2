@@ -15,7 +15,9 @@ import { BlogSection } from "@/components/home/BlogSection";
 
 export default async function Home() {
   const blogPosts = await getAllBlogPost(4);
-  const displayedWorks = works.filter((work) => work.show_on_top);
+  const displayedWorks = works.filter((work) => work.show_on_top).sort(
+    (a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+  );
 
   return (
     <>
