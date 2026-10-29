@@ -27,9 +27,9 @@ export default async function Blogs() {
 
   return (
     <Section className="py-16 md:py-24">
-      <h1 className="text-3xl md:text-4xl font-bold mb-12 text-center font-title text-zinc-800 tracking-wide">
+      <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center font-title text-zinc-800 tracking-wide">
         Blogs
-      </h1>
+      </h2>
       <div className="mx-auto flex max-w-250 flex-col gap-8 md:gap-10">
         {sortedPosts.length === 0 ? (
           <p className="text-center text-zinc-500 py-12">記事がまだありません。</p>

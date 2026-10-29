@@ -6,6 +6,7 @@ import { motion } from 'framer-motion';
 import { BlogPost } from '@/types/blog';
 import { fadeIn } from '@/libs/motion';
 import { Section } from '../Section';
+import CustomButton from '../Button';
 
 const MotionLink = motion.create(Link);
 
@@ -59,6 +60,15 @@ export function BlogSection({ blogPosts }: BlogSectionProps) {
           );
         })}
       </div>
+      <motion.div
+        {...fadeIn.up}
+      >
+        <div className="text-center">
+          <CustomButton href="/blogs">
+            View All Blogs
+          </CustomButton>
+        </div>
+      </motion.div>
     </Section>
   );
 }

@@ -77,7 +77,7 @@ export function WorksSection({ displayedWorks }: WorkSectionProps) {
       >
         <div className="text-center">
           <CustomButton href="/works">
-            View All
+            View All Works
           </CustomButton>
         </div>
       </motion.div>
