@@ -18,13 +18,17 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function Works() {
+  const sortedWorks = [...works].sort(
+    (a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+  );
+
   return (
     <Section className="py-16 md:py-24">
       <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center font-title text-zinc-800 tracking-wide">
         Works
       </h2>
       <div className="mx-auto flex max-w-250 flex-col gap-8 md:gap-10">
-        {works.map((work) => {
+        {sortedWorks.map((work) => {
           const isLink = Boolean(work.link);
           const Component = isLink ? 'a' : 'div';
           const linkProps = isLink
