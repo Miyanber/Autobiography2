@@ -21,7 +21,7 @@ export default async function Home() {
 
   return (
     <>
-      <Section className="relative w-full min-h-svh overflow-hidden">
+      <Section id="home" className="relative w-full min-h-svh overflow-hidden">
         <div className="absolute inset-0 left-1/2 top-1/2 w-[70%] h-[70%] max-h-[100vw] -translate-x-1/2 -translate-y-1/2 rounded-[0_5rem_0_5rem] overflow-hidden">
           <div className="absolute left-0 top-0 w-[52%] h-[calc(47%-0.5rem)] md:h-[calc(47%-1rem)] md: overflow-hidden filter grayscale-60 contrast-70 z-15">
             <Image src={drumsImg} alt="ドラム" fill className="object-cover" priority />

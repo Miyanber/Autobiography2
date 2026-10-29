@@ -13,7 +13,7 @@ type WorkSectionProps = {
 
 export function WorksSection({ displayedWorks }: WorkSectionProps) {
   return (
-    <Section>
+    <Section id="works">
       <motion.div
         {...fadeIn.up}
       >

@@ -16,7 +16,7 @@ type BlogSectionProps = {
 
 export function BlogSection({ blogPosts }: BlogSectionProps) {
   return (
-    <Section bg="bg-[#e3f0f1]" px="px-4 sm:px-12">
+    <Section id="blogs" bg="bg-[#e3f0f1]" px="px-4 sm:px-12">
       {/* 1. タイトルは単体でフワッと出す */}
       <motion.div {...fadeIn.up}>
         <h2 className="text-center">Blogs</h2>

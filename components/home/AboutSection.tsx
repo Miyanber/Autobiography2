@@ -11,7 +11,7 @@ import myrIcon from "@/app/img/icon2.webp";
 
 export function AboutSection() {
   return (
-    <Section bg="bg-[#e3f0f1]">
+    <Section id="about" bg="bg-[#e3f0f1]">
       <div className="max-w-2xl mx-auto flex flex-col items-center">
         {/* セクションタイトル */}
         <motion.div {...fadeIn.up}>
