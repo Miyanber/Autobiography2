@@ -19,40 +19,71 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function Works() {
   return (
-    <Section>
-      <h2 className="text-3xl mb-10 text-center">Works</h2>
-      <div className="mx-auto flex max-w-250 flex-col gap-12">
+    <Section className="py-16 md:py-24">
+      <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center font-title text-zinc-800 tracking-wide">
+        Works
+      </h2>
+      <div className="mx-auto flex max-w-250 flex-col gap-8 md:gap-10">
         {works.map((work) => {
-          const content = (
-            <Image
-              src={work.thumbnail ? work.thumbnail : '/main/img/NO_IMAGE.webp'}
-              alt="サムネイル"
-              fill
-              className="object-contain"
-            />
-          );
+          const isLink = Boolean(work.link);
+          const Component = isLink ? 'a' : 'div';
+          const linkProps = isLink
+            ? {
+                href: work.link,
+                target: '_blank',
+                rel: 'noopener noreferrer',
+              }
+            : {};
+
           return (
-            <div
+            <Component
               key={work.id}
-              className="group flex flex-col gap-6 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:shadow-md md:flex-row md:items-center md:gap-8"
+              {...linkProps}
+              className={`group flex flex-col md:flex-row gap-6 md:gap-8 items-start md:items-center border-y border-zinc-200 py-8 px-4 sm:px-6 transition-all duration-300 ${
+                isLink
+                  ? 'cursor-pointer hover:bg-zinc-50/80 hover:border-zinc-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500'
+                  : 'cursor-default'
+              }`}
             >
-              <div className="relative w-full overflow-hidden rounded-xl md:w-48 h-36 shrink-0 transition-transform duration-300 ease-in-out group-hover:scale-105">
-                {work.link ? (
-                  <a href={work.link} target="_blank" rel="noopener noreferrer" className="relative block w-full h-full">
-                    {content}
-                  </a>
-                ) : (
-                  <div className="relative block w-full h-full">{content}</div>
-                )}
+              {/* サムネイル画像 */}
+              <div className="relative w-full md:w-52 h-44 md:h-36 shrink-0 overflow-hidden rounded-lg bg-zinc-100">
+                <Image
+                  src={work.thumbnail ? work.thumbnail : '/main/img/NO_IMAGE.webp'}
+                  alt={work.title}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 208px"
+                  className="object-contain transition-transform duration-300 ease-out group-hover:scale-105"
+                />
               </div>
-              <div className="flex-1">
-                <div className="pb-3 text-xl font-semibold font-title text-slate-900">
-                  {work.title}
+
+              {/* 作品詳細 */}
+              <div className="flex-1 min-w-0">
+                <div className="flex items-center gap-2 pb-2 text-xl md:text-2xl font-semibold font-title text-zinc-900 transition-colors duration-200 group-hover:text-sky-700">
+                  <span>{work.title}</span>
+                  {isLink && (
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                      className="w-5 h-5 shrink-0 text-zinc-400 transition-all duration-200 group-hover:text-sky-600 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                      aria-hidden="true"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                  )}
                 </div>
-                <div className="mt-2 mb-4 h-1 w-20 rounded-sm bg-[#bbbbbb]" />
-                <div className="text-[#3f3f3f]">{work.overview}</div>
+
+                <div className="mt-1 mb-4 h-1 w-16 rounded-full bg-zinc-300 transition-all duration-300 ease-out group-hover:w-24 group-hover:bg-sky-600" />
+
+                <p className="text-zinc-600 leading-relaxed text-sm md:text-base m-0">
+                  {work.overview}
+                </p>
               </div>
-            </div>
+            </Component>
           );
         })}
       </div>
