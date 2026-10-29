@@ -1,4 +1,3 @@
-
 import Image from "next/image";
 
 import drumsImg from './img/drums.webp';
@@ -46,15 +45,6 @@ export default async function Home() {
       <WorksSection displayedWorks={displayedWorks}></WorksSection>
 
       <BlogSection blogPosts={blogPosts}></BlogSection>
-
-      <section id="contact" className="py-20 px-6 md:px-12">
-        <h2 className="text-center">Contact</h2>
-        <p className="text-center">
-          Email: <a href="mailto:seiya.miyazaki.pg@gmail.com" className="hover:text-black underline underline-offset-4">
-            seiya.miyazaki.pg@gmail.com
-          </a>
-        </p>
-      </section>
     </>
   );
 }

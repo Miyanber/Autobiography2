@@ -4,6 +4,7 @@ import favicon from './favicon.ico';
 
 import { Hina_Mincho, Zen_Kaku_Gothic_New } from 'next/font/google';
 import Navbar from "@/components/NavBar";
+import { Footer } from "@/components/Footer";
 
 import { config } from '@fortawesome/fontawesome-svg-core'
 import '@fortawesome/fontawesome-svg-core/styles.css'
@@ -59,9 +60,7 @@ export default function RootLayout({
           <Navbar favicon={favicon} />
         </header>
         {children}
-        <footer className="mt-auto border-t border-slate-200 py-6 text-center text-sm text-slate-500">
-          &copy; 2026 Miyanber | Powered by Next.js
-        </footer>
+        <Footer />
         <ScrollToTopButton></ScrollToTopButton>
       </body>
     </html>

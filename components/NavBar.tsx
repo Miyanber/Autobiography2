@@ -20,49 +20,45 @@ const navItems: NavItem[] = [
   { label: "About", href: "/#about", id: "about" },
   { label: "Works", href: "/#works", id: "works" },
   { label: "Blogs", href: "/#blogs", id: "blogs" },
-  { label: "Contact", href: "/#contact", id: "contact" },
 ];
 
 export default function Navbar({ favicon }: NavProps) {
   const [isOpen, setIsOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState<string>("home");
+  const [scrollSection, setScrollSection] = useState<string>("home");
   const pathname = usePathname();
+
+  const derivedSection = pathname.startsWith("/about")
+    ? "about"
+    : pathname.startsWith("/works")
+      ? "works"
+      : pathname.startsWith("/blog")
+        ? "blogs"
+        : "";
+
+  const activeSection = pathname === "/" ? scrollSection : derivedSection;
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
-  // スクロール位置または現在のパスに応じてアクティブな項目を更新
+  // トップページにいる場合のスクロールスパイ
   useEffect(() => {
-    // 下層ページにいる場合
-    if (pathname !== "/") {
-      if (pathname.startsWith("/about")) {
-        setActiveSection("about");
-      } else if (pathname.startsWith("/works")) {
-        setActiveSection("works");
-      } else if (pathname.startsWith("/blog")) {
-        setActiveSection("blogs");
-      } else {
-        setActiveSection("");
-      }
-      return;
-    }
+    if (pathname !== "/") return;
 
-    // トップページにいる場合のスクロールスパイ
-    const sectionIds = ["home", "about", "works", "blogs", "contact"];
+    const sectionIds = ["home", "about", "works", "blogs"];
 
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
       const windowHeight = window.innerHeight;
       const documentHeight = document.documentElement.scrollHeight;
 
-      // ページ最下部付近にいる場合はContactをアクティブに
+      // ページ最下部付近にいる場合はBlogsをアクティブに
       if (scrollPosition + windowHeight >= documentHeight - 60) {
-        setActiveSection("contact");
+        setScrollSection("blogs");
         return;
       }
 
       // ページ最上部付近ならHome
       if (scrollPosition < 150) {
-        setActiveSection("home");
+        setScrollSection("home");
         return;
       }
 
@@ -80,7 +76,7 @@ export default function Navbar({ favicon }: NavProps) {
         }
       }
 
-      setActiveSection(currentSection);
+      setScrollSection(currentSection);
     };
 
     handleScroll();
@@ -133,18 +129,16 @@ export default function Navbar({ favicon }: NavProps) {
                 key={item.label}
                 href={item.href}
                 onClick={(e) => handleNavClick(e, item)}
-                className={`relative py-1 text-sm lg:text-base font-title tracking-wide transition-all duration-300 ${
-                  isActive
+                className={`relative py-1 text-sm lg:text-base font-title tracking-wide transition-all duration-300 ${isActive
                     ? "text-zinc-950 font-bold"
                     : "text-zinc-500 hover:text-zinc-900 font-medium"
-                }`}
+                  }`}
               >
                 {item.label}
                 {/* アクティブ時の下線装飾インジケーター */}
                 <span
-                  className={`absolute bottom-0 left-0 h-0.5 bg-zinc-900 transition-all duration-300 rounded-full ${
-                    isActive ? "w-full opacity-100" : "w-0 opacity-0"
-                  }`}
+                  className={`absolute bottom-0 left-0 h-0.5 bg-zinc-900 transition-all duration-300 rounded-full ${isActive ? "w-full opacity-100" : "w-0 opacity-0"
+                    }`}
                 />
               </Link>
             );
@@ -160,28 +154,24 @@ export default function Navbar({ favicon }: NavProps) {
         >
           <div className="w-6 h-5 relative flex flex-col justify-between">
             <span
-              className={`w-full h-0.5 bg-current transition-all duration-300 ${
-                isOpen ? "rotate-45 translate-y-2" : ""
-              }`}
+              className={`w-full h-0.5 bg-current transition-all duration-300 ${isOpen ? "rotate-45 translate-y-2" : ""
+                }`}
             />
             <span
-              className={`w-full h-0.5 bg-current transition-all duration-300 ${
-                isOpen ? "opacity-0" : ""
-              }`}
+              className={`w-full h-0.5 bg-current transition-all duration-300 ${isOpen ? "opacity-0" : ""
+                }`}
             />
             <span
-              className={`w-full h-0.5 bg-current transition-all duration-300 ${
-                isOpen ? "-rotate-45 -translate-y-2" : ""
-              }`}
+              className={`w-full h-0.5 bg-current transition-all duration-300 ${isOpen ? "-rotate-45 -translate-y-2" : ""
+                }`}
             />
           </div>
         </button>
 
         {/* スマホ用ドロワーメニュー */}
         <div
-          className={`fixed top-0 left-0 w-screen h-svh bg-white/95 backdrop-blur-md flex flex-col items-center justify-center gap-8 transition-transform duration-300 md:hidden z-30 ${
-            isOpen ? "translate-x-0" : "translate-x-full"
-          }`}
+          className={`fixed top-0 left-0 w-screen h-svh bg-white/95 backdrop-blur-md flex flex-col items-center justify-center gap-8 transition-transform duration-300 md:hidden z-30 ${isOpen ? "translate-x-0" : "translate-x-full"
+            }`}
         >
           {navItems.map((item) => {
             const isActive = activeSection === item.id;
@@ -190,11 +180,10 @@ export default function Navbar({ favicon }: NavProps) {
                 key={item.label}
                 href={item.href}
                 onClick={(e) => handleNavClick(e, item)}
-                className={`relative px-4 py-2 text-2xl font-title transition-all duration-200 ${
-                  isActive
+                className={`relative px-4 py-2 text-2xl font-title transition-all duration-200 ${isActive
                     ? "text-zinc-950 font-bold border-b-2 border-zinc-900"
                     : "text-zinc-500 hover:text-zinc-900"
-                }`}
+                  }`}
               >
                 {item.label}
               </Link>
