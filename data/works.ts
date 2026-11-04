@@ -37,7 +37,6 @@ export const works: Work[] = [
     overview:
       "洛南高等学校附属中学校鉄道研究部の公式ホームページ。2023年度にリニューアル制作を担当。",
     appUrl: "https://rakunanrail.web.fc2.com/index.html",
-    githubUrl: "https://github.com/Miyanber/rakunan_rail",
     createdAt: "2023-10-05",
     show_on_top: false,
   },
