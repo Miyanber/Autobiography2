@@ -52,11 +52,13 @@ export const copyBandsData: Band[] = [
   {
     name: "Oasis",
     status: "archive",
+    playlistUrl: "https://music.youtube.com/playlist?list=PLXJ-5Zqovy4U&si=nWKyskrLpbfbuHTf",
     period: "",
   },
   {
     name: "ナンバーガール",
     status: "archive",
+    playlistUrl: "https://music.youtube.com/playlist?list=PLLUk_qvCq-ak&si=CyzEKkogvij86Adb",
     period: "",
   },
   {
@@ -83,58 +85,52 @@ export const copyBandsData: Band[] = [
   {
     name: "Weezer",
     playlistUrl:
-      "https://open.spotify.com/playlist/5eMh6NPTfdkkLl82SfTrNO?si=1e912147a90f4664",
-    status: "active",
+      "https://music.youtube.com/playlist?list=PLIQZWS_UvNh8&si=JPFi6unHVmmKJmJJ",
+    status: "archive",
     period: "",
   },
   {
     name: "Nulbarich",
     playlistUrl:
-      "https://open.spotify.com/playlist/12ri3IMWT3m9oNPB6I3Epa?si=f4ca8c104f7d40ed",
-    status: "active",
+      "https://music.youtube.com/playlist?list=PLL4MQ_qBhvrw&si=hEFH8hNnRudyHhuc",
+    status: "archive",
     period: "",
   },
   {
     name: "集団行動",
     playlistUrl:
-      "https://open.spotify.com/playlist/2RDO2kZwSH3I5kbtVf7V7v?si=d39fd825301c4251",
+      "https://music.youtube.com/watch?v=ksdh62jIp5A&si=60eIVwGQqO4ug2P8",
     status: "archive",
     period: "",
   },
   {
     name: "超☆社会的サンダル",
     status: "archive",
+    playlistUrl: "https://music.youtube.com/watch?v=OlQ63wYlInc&si=1A9nLUukJsrPjw83",
     period: "",
   },
   {
     name: "おいしくるメロンパン",
-    status: "active",
-    period: "",
-  },
-  {
-    name: "171",
-    status: "active",
+    status: "archive",
+    playlistUrl: "https://music.youtube.com/playlist?list=PLbZBMFPBME7Y&si=vrJNw59qM14zol1p",
     period: "",
   },
   {
     name: "JUDY AND MARY",
     status: "active",
+    playlistUrl: "https://music.youtube.com/playlist?list=PLTweyx3EH5cw&si=aIELUBKEhh2rbTeP",
     period: "",
   },
   {
     name: "ハンブレッダーズ",
     status: "active",
-    period: "",
-  },
-  {
-    name: "自爆",
-    status: "active",
+    playlistUrl: "https://music.youtube.com/playlist?list=PLBo4GohWBHGg&si=gvnIXImo58WwtOh8",
     period: "",
   },
   {
     name: "MONO NO AWARE",
     playlistUrl:
-      "https://open.spotify.com/playlist/2QW0qX6dvY69DZhmiIUVNJ?si=e69ef7a4d63d4c48",
+      "https://music.youtube.com/playlist?list=PLfaLGPc-_a_A&si=kbT7FUkmsNOiIBeq",
     status: "active",
     period: "",
   },
@@ -146,6 +142,7 @@ export const copyBandsData: Band[] = [
   {
     name: "andymori",
     status: "active",
+    playlistUrl: "https://music.youtube.com/watch?v=UhNfn08CGmg&si=LMOwDgSPzxRGkw21",
     period: "",
   },
   {
@@ -155,6 +152,11 @@ export const copyBandsData: Band[] = [
   },
   {
     name: "ひとひら",
+    status: "active",
+    period: "",
+  },
+  {
+    name: "171",
     status: "active",
     period: "",
   },

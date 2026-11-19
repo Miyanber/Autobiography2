@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSpotify } from '@fortawesome/free-brands-svg-icons';
+import { faSpotify, faYoutube } from '@fortawesome/free-brands-svg-icons';
 import { copyBandsData } from "@/data/bands";
 
 
@@ -51,7 +51,11 @@ export function CopyBands() {
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center gap-2 text-xs font-semibold border border-zinc-300 text-zinc-700 bg-white px-4 py-2 rounded-full hover:bg-zinc-800 hover:text-white hover:border-zinc-800 transition duration-300 text-center shadow-2xs"
                 >
-                  <FontAwesomeIcon icon={faSpotify} className="w-5 h-5 text-[#1DB954]" />
+                  {band.playlistUrl.includes("music.youtube.com") ? (
+                    <FontAwesomeIcon icon={faYoutube} className="w-5 h-5 text-[#FF0000]" />
+                  ) : (
+                    <FontAwesomeIcon icon={faSpotify} className="w-5 h-5 text-[#1DB954]" />
+                  )}
                   Setlist
                 </a>
               )}
