@@ -9,6 +9,8 @@ import { faSquareGithub, faLinkedin, faXTwitter } from '@fortawesome/free-brands
 import Link from "next/link";
 import Image from 'next/image';
 import { CopyBands } from '@/components/CopyBands';
+import { PlaylistCard } from '@/components/PlaylistCard';
+import { favoritePlaylist } from '@/data/playlist';
 
 export async function generateMetadata(): Promise<Metadata> {
   const description = "学生エンジニア Miyanber のプロフィールです。";
@@ -129,23 +131,15 @@ export default function About() {// タブの状態管理 ('active' か 'archive
         <h2 className="text-center mb-4">Copy Bands & Playlists</h2>
         <p className="text-center text-zinc-500 mb-12">軽音楽部・サークルで活動中のコピーバンドと、お気に入りの音楽・セットリスト</p>
 
-        <div className='flex flex-col md:flex-row justify-around gap-8 items-center'>
+        <div className='flex flex-col items-center md:items-start md:flex-row justify-around gap-8'>
           {/* 左側：コピーバンド一覧（タブ切り替え） */}
           <CopyBands></CopyBands>
 
-          {/* 右側：お好みの曲プレイリスト（1つだけiframeでプレイヤーとして残す） */}
-          <div className="flex flex-col items-center">
+          {/* 右側：お好みの曲プレイリスト（YouTube Music プレイリストのプレビュー） */}
+          <div className="flex w-full flex-col items-center md:w-auto">
             <h3 className="text-xl font-semibold mb-6 text-zinc-700 font-title">Favorite Tracks</h3>
-            <div className="w-full aspect-4/5 h-120 max-w-80">
-              <iframe
-                title='My Favorite Playlist'
-                src="https://open.spotify.com/embed/playlist/6YqOrZt5JmeKJE6T4luDas?utm_source=generator"
-                width="100%"
-                height="100%"
-                className='rounded-2xl border-0'
-                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                loading="lazy"
-              ></iframe>
+            <div className="flex w-full items-center justify-center md:h-120">
+              <PlaylistCard {...favoritePlaylist} />
             </div>
           </div>
         </div>
